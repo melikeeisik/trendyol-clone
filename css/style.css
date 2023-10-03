@@ -28,6 +28,7 @@ body{
     max-width: 1150px;
     margin: 0 auto;
     margin-bottom: 150px;
+    margin-top: 20px;
 }
 
 .contanier{ /* container */
@@ -736,3 +737,37 @@ img.rounded-corners {
 .categories-box li:hover div{
     display: flex;
 }
+
+#pageTop {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #e8e8e8;
+    background-color: #ffff;
+    color: rgb(102, 102, 102);
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 20px;
+    transition: all 500ms ease-in-out;
+}
+
+#pageTop:hover {
+    background-color:  #fff;
+    color: orange;
+    border: 1px solid orange;
+  }
+
+ *, html {
+    scroll-behavior: smooth !important;
+  }

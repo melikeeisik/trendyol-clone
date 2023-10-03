@@ -68,6 +68,31 @@
             </ul>
         </div>
     </div>
+    <div onclick="topFunction()" id="pageTop" >
+        <i  class="fa-solid fa-arrow-up fa-sm" style="color: #666666;"></i>
+        <p style="margin-block-start: 0px;margin-block-end: 0px;margin-left: 10px;"title="Yukarı Çık">Yukarı Çık</p>
+        <script>
+            // Get the button
+            let mybutton = document.getElementById("pageTop");
+            
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() { scrollFunction()};
+            
+            function scrollFunction() {
+            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+                mybutton.style.display = "flex";
+            } else {
+                mybutton.style.display = "none";
+            }
+            }
+            
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+            document.body.scrollTop = 0 ;
+            document.documentElement.scrollTop = 0;
+            }
+        </script>
+    </div>   
     <div class="end-of-the-page-line"></div>
     <div class="divider"></div>
     <div class="main-background">
@@ -90,7 +115,12 @@
                             <div class="eye-icon"><i class="fa-solid fa-eye-slash fa-sm"></i></div>
                         </div>
                         <div class="password-style"><p>Şifreniz&nbsp;<span class="password-style-bold"> en az 7 karakter </span>&nbsp;ve&nbsp;<span class="password-style-bold"> en fazla 64 karakter </span>&nbsp;olmalı, harf ve rakam içermelidir.</p> </div>
-                        <div class="gender-container"><p>Cinsiyet (Opsiyonel)</p><div class="gender-button"><button style="border-top-left-radius: 5px;border-bottom-left-radius: 5px;">Kadın</button><button style="border-top-right-radius: 5px;border-bottom-right-radius: 5px;">Erkek</button></div> </div>
+                        <div class="gender-container"><p>Cinsiyet (Opsiyonel)</p>
+                            <div class="gender-button">
+                                <button style="border-top-left-radius: 5px;border-bottom-left-radius: 5px;">Kadın</button>
+                                <button style="border-top-right-radius: 5px;border-bottom-right-radius: 5px;">Erkek</button>
+                            </div> 
+                        </div>
                         <div class="checkbox-options-container">
                             <label class="checkbox-text"><div class="checkbox-wrapper-1">
                                 <input id="example-1" class="substituted" type="checkbox" aria-hidden="true" />
@@ -134,7 +164,7 @@
                                   background-color: #f0f0f0;
                                 }
                                 .checkbox-wrapper-1 [type=checkbox].substituted:checked + label:before {
-                                  background-color: rgb(255, 165, 0);
+                                  background-color: #ffa500;
                                   background-size: 0.75em;
                                   color: rgba(0, 0, 0, 0.075);
                                 }
@@ -267,19 +297,15 @@
                                     <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
                                     <polyline points="1 9 7 14 15 4"></polyline>
                                   </svg>
-                                </label>
-                              
-                              
+                                </label>                                                          
                               <style>
                                 .checkbox-wrapper-43 input[type="checkbox"] {
                                   display: none;
                                   visibility: hidden;
-                                }
-                              
+                                }                              
                                 .checkbox-wrapper-43 label {
                                   display: inline-block;
-                                }
-                              
+                                }                             
                                 .checkbox-wrapper-43 .check {
                                   cursor: pointer;
                                   position: relative;
