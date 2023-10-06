@@ -5,6 +5,7 @@
     <title>Melike Trendyol Anasayfa</title>
     <link rel = "stylesheet" href = "css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="js/mainMenu.js"></script>
 </head>
 <body >
     <div class="header">
@@ -18,11 +19,47 @@
         </div>
         <div class="divider"></div>
         <div class = "contanier">
-            <img class= "img-size"src= "https://cdn.dsmcdn.com/web/logo/ty-web.svg"/>
-            <label>
+            <img class= "img-size-web"src= "https://cdn.dsmcdn.com/web/logo/ty-web.svg"/>
+            <div id="drawer-container">
+                <img class= "img-size-mobile">
+                <div class="drawer-header">
+                    <img class= "img-size-mobile"src= "https://cdn.dsmcdn.com/web/logo/ty-web.svg"/>
+                    <span onclick="closeDrawer()"><i class="fa-solid fa-x" style="color: #000000;"></i></span>
+                </div>
+                <div class="drawer-main"> 
+                    <div class="drawer-main-header">
+                        <i class="fa-solid fa-bolt-lightning fa-xl" style="color: #f5cd05;"></i>
+                        <i class="fa-solid fa-bolt-lightning" style="color: #f5cd05;"></i>
+                        <p>Flaş Ürünler<br><span style="font-size: 10px;">Hemen al, fırsatı kaçırma!</span></p>
+                    </div>
+                    <ul>
+                        <li><div><i class="fa-solid fa-person-dress" style="color: #ffa500;"></i>Kadın</div><i class="fa-solid fa-chevron-right" style="color: #adb1b8;"></i></li>
+                        <li><div><i class="fa-solid fa-person-dress" style="color: #ffa500;"></i>Erkek</div><i class="fa-solid fa-chevron-right" style="color: #adb1b8;"></i></li>
+                        <li><div><i class="fa-solid fa-person-dress" style="color: #ffa500;"></i>Anne & Çocuk</div><i class="fa-solid fa-chevron-right" style="color: #adb1b8;"></i></li>
+                        <li><div><i class="fa-solid fa-person-dress" style="color: #ffa500;"></i>Spor & Outdorr </div></i><i class="fa-solid fa-chevron-right" style="color: #adb1b8;"></i></li>
+                        <li><div><i class="fa-solid fa-person-dress" style="color: #ffa500;"></i>Ayakkabı & Çanta</div></i><i class="fa-solid fa-chevron-right" style="color: #adb1b8;"></i></li>
+                        <li><div><i class="fa-solid fa-person-dress" style="color: #ffa500;"></i>Ev & Mobilya</div></i><i class="fa-solid fa-chevron-right" style="color: #adb1b8;"></i></li>
+                        <li><div><i class="fa-solid fa-person-dress" style="color: #ffa500;"></i>Süpermarket</div></i><i class="fa-solid fa-chevron-right" style="color: #adb1b8;"></i></li>
+                        <li><div><i class="fa-solid fa-person-dress" style="color: #ffa500;"></i>Kozmetik</div></i><i class="fa-solid fa-chevron-right" style="color: #adb1b8;"></i></li>
+                        <li><div><i class="fa-solid fa-person-dress" style="color: #ffa500;"></i>Elektronik</div></i><i class="fa-solid fa-chevron-right" style="color: #adb1b8;"></i></li>
+                        <li><div><i class="fa-solid fa-person-dress" style="color: #ffa500;"></i>Kitap & Kırtasiye & Hobi </div></i> <i class="fa-solid fa-chevron-right" style="color: #adb1b8;"></i></li>
+                        <li  style="border-bottom:  1px solid #e8e8e8"><div><i class="fa-solid fa-person-dress" style="color: #ffa500;"></i>Oto & Yapı & Bahçe</div></i> <i class="fa-solid fa-chevron-right" style="color: #adb1b8;"></i></li>
+                    </ul>
+                    <div class="drawer-main-footer">
+                        <ul>
+                            <li><a target="_blank" href="/login.html""><div><i class="fa-solid fa-user" style="color: #8f8f8f;"></i>Üye Ol / Giriş Yap</div></a></li>
+                            <li><div><i class="fa-solid fa-circle-question" style="color: #8f8f8f;"></i></i>Yardım</div></li>
+                            <li><div><i class="fa-solid fa-globe" style="color: #8f8f8f;"></i>Ülke Değiştir</div></li>
+                        </ul>
+                    </div>
+                    <div style="background-color: #fff; padding: 13px; margin-right: 15px;width: 100%;color: #666;text-decoration: underline;font-size: 13.5px;">Çerez Tercihlerim</div>
+                </div>
+            </div>
+            <div class="menu-bar" onclick="toggleMenu()"><div style="padding: 0px 5px;"><i class="fa-solid fa-bars fa-xl"></i><p>menü</p></div> <img class= "img-size"src= "https://cdn.dsmcdn.com/web/logo/ty-web.svg"/></div>
+            <div class="search-web ">
                 <input type="text" class="search-box" placeholder="Aradığınız ürün, marka veya kategoriyi yazınız.">
-                <object class= "search-icon-style" data="images/search.svg"> </object>
-            </label>
+                <i class="fa-solid fa-magnifying-glass " ></i>
+            </div>
             <ul class="categories">
                 <label  class="categories-box">
                     <svg width="20px" height="20px" class="nav-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -48,6 +85,10 @@
                     <li>Sepetim</li>
                 </label>
             </ul>
+        </div>
+        <div class="search-mobile">
+                <input type="text" class="search-box" placeholder = "Kategori, ürün veya marka ara">
+                <i class="fa-solid fa-magnifying-glass " ></i>
         </div>
         <div class="divider"></div>
         <div class="categories-2-container">
@@ -94,76 +135,74 @@
     <div class="end-of-the-page-line"></div>
     <div class="divider"></div>
     <main class="main">
-        <article>
-            <div class="marka-container">
-                <div class="arrow-location" >
-                    <img class = "arrow-size" src="images/arrow-left.svg">
-                </div>
-                <div class="markalar" >
-                    <a  class="konumlama" target="_blank" href= "https://www.mi.com/tr/">
-                        <img class="marka-img"  src= "images/Xiaomi.jpg"/>
-                        <span >Xiaomi</span>
-                    </a>
-                    <a  class="konumlama" target="_blank" href= "https://www.stradivarius.com/tr/">
-                        <img class="marka-img"  src= "images/Stradivarius.png"/>
-                        <span >Stradivarius</span>
-                    </a>
-                    <a  class="konumlama" target="_blank" href= "https://www.karaca.com/">
-                        <img class="marka-img"  src= "images/Karaca.jpg"/>
-                        <span >Karaca</span>
-                    </a>
-                    <a  class="konumlama" target="_blank" href= "https://www.samsung.com/tr/">
-                        <img class="marka-img"  src= "images/Samsung.jpg"/>
-                        <span >Samsung</span>
-                    </a>
-                    <a  class="konumlama" target="_blank" href= "https://www.adidas.com.tr/tr">
-                        <img class="marka-img"  src= "images/Adidas.png"/>
-                        <span >Adidas</span>
-                    </a>
-                    <a  class="konumlama" target="_blank" href= "https://www.philips.com.tr/">
-                        <img class="marka-img"  src= "images/Philips.jpg"/>
-                        <span >Philips</span>
-                    </a>
-                </div>
-                <div class="arrow-location" >
-                    <img class = "arrow-size" src="images/arrow-right.svg">
-                </div>
+        <div class="marka-container">
+            <div class="arrow-location" >
+                <img class = "arrow-size" src="images/arrow-left.svg">
             </div>
-        </article>
+            <div class="markalar" >
+                <a  class="konumlama" target="_blank" href= "https://www.mi.com/tr/">
+                    <img class="marka-img"  src= "images/Xiaomi.jpg"/>
+                    <span >Xiaomi</span>
+                </a>
+                <a  class="konumlama" target="_blank" href= "https://www.stradivarius.com/tr/">
+                    <img class="marka-img"  src= "images/Stradivarius.png"/>
+                    <span >Stradivarius</span>
+                </a>
+                <a  class="konumlama" target="_blank" href= "https://www.karaca.com/">
+                    <img class="marka-img"  src= "images/Karaca.jpg"/>
+                    <span >Karaca</span>
+                </a>
+                <a  class="konumlama" target="_blank" href= "https://www.samsung.com/tr/">
+                    <img class="marka-img"  src= "images/Samsung.jpg"/>
+                    <span >Samsung</span>
+                </a>
+                <a  class="konumlama" target="_blank" href= "https://www.adidas.com.tr/tr">
+                    <img class="marka-img"  src= "images/Adidas.png"/>
+                    <span >Adidas</span>
+                </a>
+                <a  class="konumlama" target="_blank" href= "https://www.philips.com.tr/">
+                    <img class="marka-img"  src= "images/Philips.jpg"/>
+                    <span >Philips</span>
+                </a>
+            </div>
+            <div class="arrow-location" >
+                <img class = "arrow-size" src="images/arrow-right.svg">
+            </div>
+        </div>
         <div class="grid-container"> 
             <div class="one">  Sepete En Çok Eklenenler </div>
             <div class="two"> En Çok Öne Çıkanlar</div>
             <div class="tree"> Flaş Ürünler</div>
             <div class="four"> 
                 <article>
-                    <img class= "rounded-corners" src= "images/trendyolmila.png"  height="200" width="370"> 
+                    <img class= "rounded-corners" src= "images/trendyolmila.png"  > 
                     <div>
                         <span class="name" >TRENDYOLMİLLA - Aradığı... </span>
-                        <span  class="text"> Alışverişe Başla <img height="10" width="5" src="images/arrow-right.svg" ></span>
+                        <span  class="text"> Alışverişe Başla</span>
                     </div>
                 </article>
             </div>
             <div class="four"> 
                 <article>
-                    <img class= "rounded-corners" src= "https://cdn.dsmcdn.com/marketing/datascience/automation/2023/9/22/Tefal610X300Px1_202309221019.gif"  height="200" width="370"> 
+                    <img class= "rounded-corners" src= "https://cdn.dsmcdn.com/marketing/datascience/automation/2023/9/22/Tefal610X300Px1_202309221019.gif" > 
                     <div>
                         <span class="name" >23 Eylül Tefal Marka Günü </span>
-                        <span  class="text"> Alışverişe Başla <img height="10" width="5" src="images/arrow-right.svg" ></span>
+                        <span  class="text"> Alışverişe Başla</span>
                     </div>                
                 </article>
             </div>
             <div class="four"> 
                 <article>
-                    <img class= "rounded-corners" src= "images/flas_urunler.png"  height="200" width="370"> 
+                    <img class= "rounded-corners" src= "images/flas_urunler.png"  > 
                     <div>
                         <span class="name">Ev Ürünleri Flaş Ürünler </span>
-                        <span  class="text"> Alışverişe Başla <img height="10" width="5" src="images/arrow-right.svg" ></span>
+                        <span  class="text"> Alışverişe Başla</span>
                     </div>   
                 </article>
             </div>
         </div>
         <div class="divider"></div>
-        <article class= "product">
+        <div class= "product">
             <div class="product-heading">
                 <span class= "product-leading"> Çok Satan Ürünler</span>
                 <span class="product-trailing"> Tüm Ürünler!</span>
@@ -212,8 +251,8 @@
                     </div>
                 </div> 
            </div> 
-        </article>
-        <article class= "product">
+        </div>
+        <div class= "product">
             <div class="product-heading">
                 <span class= "product-leading"> Yıldızlı Ürünler</span>
                 <span class="product-trailing"> Tüm Ürünler!</span>
@@ -265,14 +304,14 @@
                     </div>
                 </div> 
            </div> 
-        </article>
+        </div>
         <div class="grid-container">
             <div class="four"> 
                 <article>
                     <img class= "rounded-corners" src= "https://cdn.dsmcdn.com/ty999/pimWidgetApi/mobile_20230918074838_trwomanhomewearyenisezon140923mobile.jpg"  height="200" width="370"> 
                     <div>
                         <span class="name" >Trendyol Homewear- Arad... </span>
-                        <span  class="text"> Alışverişe Başla <img height="10" width="5" src="images/arrow-right.svg" ></span>
+                        <span  class="text"> Alışverişe Başla </span>
                     </div>
                 </article>
             </div>
@@ -281,7 +320,7 @@
                     <img class= "rounded-corners" src= "https://cdn.dsmcdn.com/ty1001/pimWidgetApi/mobile_20230919142900_2311009KadinMobile202309191703.jpg"  height="200" width="370"> 
                     <div>
                         <span class="name" >Mango - Kadın & Erkek & Ç...</span>
-                        <span  class="text"> Alışverişe Başla <img height="10" width="5" src="images/arrow-right.svg" ></span>
+                        <span  class="text"> Alışverişe Başla </span>
                     </div>                
                 </article>
             </div>
@@ -290,7 +329,7 @@
                     <img class= "rounded-corners" src= "https://cdn.dsmcdn.com/ty999/pimWidgetApi/mobile_20230915141710_trwomanparty150923mobile2.jpg"  height="200" width="370"> 
                     <div>
                         <span class="name" >TRENDYOLMİLLA - Partywe... </span>
-                        <span  class="text"> Alışverişe Başla <img height="10" width="5" src="images/arrow-right.svg" ></span>
+                        <span  class="text"> Alışverişe Başla</span>
                     </div>
                 </article>
             </div>
@@ -299,7 +338,7 @@
                     <img class= "rounded-corners" src= "https://cdn.dsmcdn.com/ty1004/pimWidgetApi/mobile_20230925045634_Happiness25090210Banner.jpg"  height="200" width="370"> 
                     <div>
                         <span class="name">Happiness İstanbul</span>
-                        <span  class="text"> Alışverişe Başla <img height="10" width="5" src="images/arrow-right.svg" ></span>
+                        <span  class="text"> Alışverişe Başla </span>
                     </div>   
                 </article>
             </div>
@@ -308,7 +347,7 @@
                     <img class= "rounded-corners" src= "https://cdn.dsmcdn.com/ty1005/pimWidgetApi/mobile_20230926105028_2333985AyakkabiCantaMobile202309191701.jpg"  height="200" width="370"> 
                     <div>
                         <span class="name" >adidas - Superstar & Gazel...</span>
-                        <span  class="text"> Alışverişe Başla <img height="10" width="5" src="images/arrow-right.svg" ></span>
+                        <span  class="text"> Alışverişe Başla </span>
                     </div>                
                 </article>
             </div>
@@ -317,7 +356,7 @@
                     <img class= "rounded-corners" src= "https://cdn.dsmcdn.com/ty999/pimWidgetApi/mobile_20230918145838_Stradigiyim.jpg"  height="200" width="370"> 
                     <div>
                         <span class="name">Stradivarius - Yeni Sezon</span>
-                        <span  class="text"> Alışverişe Başla <img height="10" width="5" src="images/arrow-right.svg" ></span>
+                        <span  class="text"> Alışverişe Başla </span>
                     </div>   
                 </article>
             </div>
@@ -365,6 +404,7 @@
                     </ul>
                 </div>
             </div>
+            <div class="mobil-divider"></div>
             <div class="popular-pages">
                 <p class="end-of-the-page-two-leading">Popüler Sayfalar</p>
                 <div>
