@@ -583,9 +583,20 @@ input[type=password]:focus {
     .header-mobile{
         display: flex;
         flex-direction: column;
-        justify-content: center;
         background-image: linear-gradient(to bottom, #ff5b51 2%, #ff6737 36%, #ff6a30 79%, #ff7617 98%);
         height: 130px;
+    }
+    .header-mobile-title{
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+    .header-mobile-title i{
+        position: absolute;
+        right: 5px;
+        top:40px;
+        font-weight: 500;
+        margin-right: 20px;
     }
     .header-mobile img{
         margin-top: 30px;
@@ -604,11 +615,17 @@ input[type=password]:focus {
         color:#ff6a30;
         border: none;
         font-weight: 500;
+        font-size: 15px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         border-top-right-radius: 10px;
         border-top-left-radius: 10px;
     }
     .header-mobile-button .signup-button-mobile{
+        text-decoration:none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
         margin-left: 2.5px;
         margin-right: 20px;
         background-color: rgba(255,255,255,0.2);
