@@ -349,13 +349,13 @@ main {
     height: 25px;
     width: 70px;
     background-color: #31c458;
-    color: white;
     position: absolute;
     display: flex;
     align-items: center;
     z-index: 1;
     border-radius: 5px;
     padding-left: 5px;
+    color: white !important;
 }
 
 .cargo-text{
@@ -363,6 +363,7 @@ main {
     padding: 6px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 600;
+    color: white !important;
 }
 .product-info{
     width: 520px;
@@ -383,6 +384,7 @@ main {
     font-size: 13px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 0px 5px;
+    margin-block-start: 0px;
 }
 .product-info .product-favorites p span{
     font-weight: 600;
@@ -416,7 +418,7 @@ main {
     margin-right: 10px;
     font-size: 15px;
 }
-.product-info .product-reputation .products-vote .stars{
+.stars{
     font-size: 13.5px;
     padding-top: 3px;
     display: flex;
@@ -439,6 +441,7 @@ main {
     font-size: 11px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #666;
+    margin-block-start: 5px;
 }
 .reviews-text-p:hover{
     cursor: pointer;
@@ -540,13 +543,15 @@ main {
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: 20px;
     margin-top: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 12px;
     padding-left: 10px;
     border-radius: 5px;
     margin-bottom: 20px;
+}
+.quick-delivery p{
+    margin-block-start: 5px;
 }
 .quick-delivery i{
     color: green;
@@ -739,7 +744,7 @@ main {
 }
 .all-features-button{
     position: absolute;
-    bottom:-5px;
+    bottom:-23px;
     left: 80px;
     display: flex;
     flex-direction: row;
@@ -1035,7 +1040,7 @@ main {
 }
 .other-button{
     position: absolute;
-    top: 173px;
+    bottom :-15px;
     left: 20px;
     display: flex;
     flex-direction: row;
@@ -1077,7 +1082,8 @@ main {
     color: black !important;
     font-size: 11px !important;
     margin-left: 12px;
-    margin-top: 10px !important;
+    margin-top: 5px !important;
+    margin-block-start: 0px;
 }
 .add-collection i{
     font-size: 12px;
@@ -1258,7 +1264,7 @@ main {
 .other-price{
     display: flex;
     flex-direction: row;
-    padding: 15px;
+
 }
 .other-price p{
     color: orange;
@@ -1272,10 +1278,152 @@ main {
     border-radius: 5px;
     color: #fff;
     font-weight: 600;
+    margin: 0px 5px;
     margin-top: 10px;
-    margin-left: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 13px;
+}
+.more-other-person{
+    margin-top: 30px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #e8e8e8;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-size: 13px;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+.product-evaluation-container{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.comment-container{
+    width: 100%;
+    background-color: #fff;
+    border-left: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-shadow: 0 2px 5px #0000000d;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+.evalutaion{
+    display: flex;
+    flex-direction: row;
+    font-size: 25px;
+    align-items: center;
+    font-weight: 600;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 2px 5px #0000000d;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 25px;
+    
+}
+.comment-stars{
+    font-size: 20px;
+    display: flex;
+    gap:2px;
+    margin-left: 10px;
+}
+.comment-stars-icon{
+    font-size: 13px;
+    color: #999;
+    padding-left: 5px;
+}
+.piece-of-evalutaion{
+    display: flex;
+    flex-direction: row;
+    font-size: 13px;
+    font-weight: 400;
+    padding-left: 200px;
+}
+.comment-title{
+    display: flex;
+    flex-direction: row;
+}
+.comment-text{
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    font-size: 14px;
+    padding-left: 10px;
+    color: #666;
+}
+.comment-subtitle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.comment-leading{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.person-text{
+    font-size: 11px;
+    color: #999;
+}
+.seperate-evulation{
+    color: #999;
+    margin-top: 13px;  
+}
+.comment{
+    padding-bottom: 10px;
+}
+.comment-name{
+    color: #1f6bc1;
+    font-weight: 500;
+}
+.comment-trailing{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.trailing-text{
+    font-size: 11px;
+    color: #666;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-top: 5px;
+    transition: all 300ms ease-in-out;
+}
+.like{
+    display: flex;
+    flex-direction: row;
+}
+
+.like:hover p{
+    cursor: pointer;
+    color: orange;
+}
+.like:hover i{
+    cursor: pointer;
+    color: orange;
+}
+
+.like-icon i{
+    font-size: 17px;
+    padding-right: 5px;
+    color: #666;
+    transition: all 300ms ease-in-out;
+}
+.three-points-icon i{
+    font-size: 25px;
+    padding-left: 20px;
+    color: #999;
+    transition: all 300ms ease-in-out;
+}
+.three-points-icon:hover i{
+    cursor: pointer;
+    color:#4a4949;
 }
