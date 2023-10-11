@@ -369,7 +369,11 @@ img.rounded-corners {
     flex:1;
     flex-direction: column;
     justify-content: space-evenly;
+    text-decoration: none;
    
+}
+.product-grid a{
+    text-decoration: none;
 }
 .product-detail{
     font-size: 16px;
@@ -378,6 +382,7 @@ img.rounded-corners {
     font-weight: 200;
     height: 100px;
     padding: 10px;
+    text-decoration: none;
 }
 
 .product-price{
