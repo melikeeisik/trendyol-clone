@@ -11,13 +11,13 @@
               img = document.getElementById(imgID);
               result = document.getElementById(resultID);
               /*create lens:*/
-              lens = document.createElement("DIV");
+              lens = document.createElement("div");
               lens.setAttribute("class", "img-zoom-lens");
               /*insert lens:*/
               img.parentElement.insertBefore(lens, img);
               /*calculate the ratio between result DIV and lens:*/
-              cx = result.offsetWidth / lens.offsetWidth;
-              cy = result.offsetHeight / lens.offsetHeight;
+              cx = 2.51;
+              cy = 3.285;
               /*set background properties for the result DIV:*/
               result.style.backgroundImage = "url('" + img.src + "')";
               result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
@@ -42,8 +42,8 @@
                 if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
                 if (y < 0) {y = 0;}
                 /*set the position of the lens:*/
-                lens.style.left = x +10 + "px";
-                lens.style.top = y + 10+ "px";
+                lens.style.left = x + "px";
+                lens.style.top = y + "px";
                 /*display what the lens "sees":*/
                 result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
               }
@@ -61,7 +61,7 @@
                 return {x : x, y : y};
               }
             }
-            </script>
+        </script>
     </head>
     <body>
         <div class="header">

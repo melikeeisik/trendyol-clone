@@ -339,14 +339,12 @@ main {
     opacity: 0.5;
     position: absolute;
     width: 200px;
-    bottom:10px;
     height: 200px;
 }
 .product-img:hover .img-zoom-lens{
     display: block;
     cursor: crosshair;
 }
-  
 .img-zoom-result {
     display: none;
     border: 1px solid #d4d4d4;
@@ -361,6 +359,7 @@ main {
 .product-img:hover .img-zoom-result{
     display: block;
 }
+
 .corporate-invoice{
     height: 25px;
     width: 70px;
