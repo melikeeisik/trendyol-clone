@@ -88,6 +88,7 @@ body{
     background-color: #f2f2f2;
     border-radius: 8px;
     border: 1px solid  #f2f2f2;
+    
 }
 ::placeholder{
     padding: 10px;
@@ -297,6 +298,25 @@ body{
 }
 .login-form{
     padding: 35px 35px 15px 35px;
+}
+.error-box{
+    background-color: #fff4f6;
+    color: #d0021b;
+    height: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid #d0021b;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 10px;
+    margin-bottom: 10px;
+    display: none;
+}
+.error-icon{
+    padding-right: 10px;
 }
 .login-form ::-webkit-input-placeholder{
     color:transparent

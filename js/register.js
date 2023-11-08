@@ -65,10 +65,11 @@ function setUser(){
                 "style", "background-color:#fff4f6;border: 1px solid #d0021b;"
                 pTag[0].innerHTML = "Bu maile ait kullanıcı bulunmaktadır. Yeni mail deneyiniz."
             }
-            
         }else{
             userList.push(user)
             localStorage.setItem("userList" ,JSON.stringify(userList))
+            form.submit()
+
         }
 }
 
@@ -93,6 +94,7 @@ submitBtn.addEventListener("click" ,e=>{
         }else{
             e.removeAttribute("style")
             setUser();
+           
         }
     })
 

@@ -115,17 +115,26 @@
                 <div class="button-container"><a target="_self" href="/login.html"><button style="color: orange;">Giriş Yap</button></a><a target="_self" href="/signup.html"><button style="background-color: #f2f2f2;;">Üye Ol</button></a></div>
                 <div class="form-container">
                     <div class="login-form">
-                        <div class="e-mail" style="margin-bottom: 20px;">
-                            <p>E-Posta</p>
-                            <input type="text" placeholder="E-posta">
-                        </div>
-                        <div class="password">
-                            <p>Şifre</p>
-                            <input type="password" placeholder="Şifre">  
-                            <div class="eye-icon"><i class="fa-solid fa-eye-slash fa-sm"></i></div>
-                        </div>
-                        <div class="forget-password">Şifremi Unuttum</div>
-                        <div><button>GİRİŞ YAP</button></div>
+                        <div class="error-box">
+                            <div class="error-icon">
+                              <i class="fa-solid fa-circle-exclamation"></i>
+                            </div>
+                          </div>
+                        <form action="./index.html" id="form">
+                            <div class="e-mail" style="margin-bottom: 20px;">
+                                <p>E-Posta</p>
+                                <input type="text" placeholder="E-posta" id="email">
+                            </div>
+                            <div class="password">
+                                <p>Şifre</p>
+                                <input type="password" placeholder="Şifre" id="password">  
+                                <div class="eye-icon" >
+                                    <i id="close-eye" class="fa-solid fa-eye-slash"></i>
+                                </div>
+                            </div>
+                            <div class="forget-password">Şifremi Unuttum</div>
+                            <div><button id="login-button">GİRİŞ YAP</button></div>
+                        </form>
                         <div class="social-media">
                             <div class="social-media-container">
                                 <i class="fa-brands fa-square-facebook fa-2xl" style="color: #244d94;"></i>
@@ -247,6 +256,7 @@
 
         </div>
     </div>
+    <script src="./js/login.js"></script>
 </body>
 </html>
 
