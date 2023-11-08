@@ -5,6 +5,14 @@
     <title>Üye Ol Sayfası</title>
     <link rel = "stylesheet" href = "css/signup-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      .genderClass{
+        background-color: #fff !important;
+        color:hsl(39, 100%, 50%) !important;
+        border: 1px solid #ffa500 !important;
+        border-radius: 5px;
+      }
+    </style>
 </head>
 <body >
     <div class="header">
@@ -115,26 +123,33 @@
                 <div class="button-container"><a target="_self" href="/login.html"><button style="background-color: #f2f2f2;">Giriş Yap</button></a><a target="_self" href="/signup.html"><button style="color: orange;">Üye Ol</button></a></div>
                 <div class="form-container">
                     <div class="login-form">
+                      <div class="error-box">
+                        <div class="error-icon">
+                          <i class="fa-solid fa-circle-exclamation"></i>
+                        </div>
+                      </div>
+                      <form id ="form" action="" novalidate>
                         <div class="e-mail" style="margin-bottom: 20px;">
                             <p>E-Posta</p>
-                            <input type="text" placeholder="E-posta">
+                            <input type="email" placeholder="E-posta" id="email" required>
                         </div>
                         <div class="password">
                             <p>Şifre</p>
-                            <input type="password" placeholder="Şifre">  
+                            <input type="password" pattern="^(?=.*[A-Za-z])(?=.*\d).+$" minlength="7" maxlength="64" placeholder="Şifre" id="password" required>  
                             <div class="eye-icon"><i class="fa-solid fa-eye-slash fa-sm"></i></div>
                         </div>
+            
                         <div class="password-style"><p>Şifreniz&nbsp;<span class="password-style-bold"> en az 7 karakter </span>&nbsp;ve&nbsp;<span class="password-style-bold"> en fazla 64 karakter </span>&nbsp;olmalı, harf ve rakam içermelidir.</p> </div>
                         <div class="gender-container"><p>Cinsiyet (Opsiyonel)</p>
                             <div class="gender-button">
-                                <button style="border-top-left-radius: 5px;border-bottom-left-radius: 5px;">Kadın</button>
-                                <button style="border-top-right-radius: 5px;border-bottom-right-radius: 5px;">Erkek</button>
+                                <button id="1" class="woman">Kadın</button>
+                                <button id="2" class="men">Erkek</button>
                             </div> 
                         </div>
                         <div class="checkbox-options-container">
                           <div class="checkbox">
                             <label class="checkbox-text"><div class="checkbox-wrapper-1">
-                                <input id="example-1" class="substituted" type="checkbox" aria-hidden="true" />
+                                <input id="example-1" class="substituted" type="checkbox" aria-hidden="true" required/>
                                 <label for="example-1"></label>
                               </div>
                               
@@ -220,8 +235,8 @@
                             </div>
                             <div class="checkbox">  
                               <label class="checkbox-text"><div class="checkbox-wrapper-1">
-                                <input id="example-1" class="substituted" type="checkbox" aria-hidden="true" />
-                                <label for="example-1"></label>
+                                <input id="example-2" class="substituted" type="checkbox" aria-hidden="true" required/>
+                                <label for="example-2"></label>
                               </div>
                               
                               <style>
@@ -307,7 +322,7 @@
                         </div>
                         <article class="not-robot">
                             <div class="checkbox-wrapper-43">
-                                <input type="checkbox" id="cbx-43">
+                                <input type="checkbox" id="cbx-43" required>
                                 <label for="cbx-43" class="check">
                                   <svg width="30px" height="30px" viewBox="0 0 18 18">
                                     <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
@@ -411,6 +426,7 @@
                             <p class="last-text-two">Üye olmadan verilen siparişlerin takibi için</p>
                             <pre class="click-text"> tıklayınız.</pre>
                         </div>
+                      </form>
                     </div>
                 </div>
             </div>
@@ -509,6 +525,7 @@
 
         </div>
     </div>
+    <script src="./js/register.js"></script>
 </body>
 </html>
 

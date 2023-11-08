@@ -75,14 +75,35 @@
             </div>
             <div class="divider"></div>
             <div class = "contanier">
-                <a target="_self" href="/index.html">
-                    <img class= "img-size-web"src= "https://cdn.dsmcdn.com/web/logo/ty-web.svg"/>
-                </a>
+                <div class="img-title">
+                    <div class="img-icon">
+                            <i class="fa-solid fa-angle-left"></i>
+                    </div>
+                    <a target="_self" href="/index.html">
+                        <img class= "img-size-web"src= "https://cdn.dsmcdn.com/web/logo/ty-web.svg"/>
+                    </a>
+                </div>
                 <div class="search-web ">
                     <input type="text" class="search-box" placeholder="Aradığınız ürün, marka veya kategoriyi yazınız.">
                     <i class="fa-solid fa-magnifying-glass " ></i>
                 </div>
                 <ul class="categories">
+                    <div class="categories-product-mobile">
+                        <div class="categories-mobile-icon">
+                            <i class="fa-solid fa-magnifying-glass " ></i>
+                        </div>
+                        <div class="categories-mobile-icon">
+                            <i class="fa-regular fa-heart"></i>
+                        </div>
+                        <div class="categories-mobile-icon">
+                            <svg width="30px" height="30px" class="nav-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 3L2.26491 3.0883C3.58495 3.52832 4.24497 3.74832 4.62248 4.2721C5 4.79587 5 5.49159 5 6.88304V9.5C5 12.3284 5 13.7426 5.87868 14.6213C6.75736 15.5 8.17157 15.5 11 15.5H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M5 6H16.4504C18.5054 6 19.5328 6 19.9775 6.67426C20.4221 7.34853 20.0173 8.29294 19.2078 10.1818L18.7792 11.1818C18.4013 12.0636 18.2123 12.5045 17.8366 12.7523C17.4609 13 16.9812 13 16.0218 13H5" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                    </div>
                     <label  class="categories-box">
                         <svg width="20px" height="20px" class="nav-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
@@ -125,7 +146,7 @@
                 </ul>
             </div>
         </div>
-        <div onclick="topFunction()" id="pageTop" >
+        <div class="a" onclick="topFunction()" id="pageTop" >
             <i  class="fa-solid fa-arrow-up fa-sm" style="color: #666666;"></i>
             <p style="margin-block-start: 0px;margin-block-end: 0px;margin-left: 10px;"title="Yukarı Çık">Yukarı Çık</p>
             <script>
@@ -157,15 +178,15 @@
                 <div class="category">
                     <ul>
                         <li>Anasayfa</li>
-                        <li><i class="fa-solid fa-chevron-right" style="color: #ffa500;"></i></li>
+                        <li><i class="fa-solid fa-chevron-right" ></i></li>
                         <li>Kadın</li>
-                        <li><i class="fa-solid fa-chevron-right" style="color: #ffa500;"></i></li>
+                        <li><i class="fa-solid fa-chevron-right" ></i></li>
                         <li>Kozmetik</li>
-                        <li><i class="fa-solid fa-chevron-right" style="color: #ffa500;"></i></li>
+                        <li><i class="fa-solid fa-chevron-right" ></i></li>
                         <li>Parfüm & Deodorant</li>
-                        <li><i class="fa-solid fa-chevron-right" style="color: #ffa500;"></i></li>
+                        <li><i class="fa-solid fa-chevron-right"></i></li>
                         <li>Parfüm</li>
-                        <li><i class="fa-solid fa-chevron-right" style="color: #ffa500;"></i></li>
+                        <li><i class="fa-solid fa-chevron-right" ></i></li>
                         <li class="product-categroy-name"> Avon Parfüm</li>
                     </ul>
                 </div>
@@ -178,11 +199,18 @@
                     </div>
                     <div class="product-info">
                         <div class="product-favorites">
-                            <i class="fa-solid fa-award fa-lg" style="color: #ffa500;"></i>
+                            <div class="price-icon">
+                                <i class="fa-solid fa-award fa-lg" ></i>
+                            </div>
                             <p>Kadın Parfüm kategorisinde <span>en çok favorilenen 2. ürün</span></p>
-                            <i class="fa-solid fa-chevron-right" style="color: #666666; font-size: 8px"></i>
+                            <div class="price-left-icon">
+                                <i class="fa-solid fa-chevron-right" tyle="color: #666666;s font-size: 8px"></i>
+                            </div>
                         </div>
-                        <div class="product-name"> <span>Avon </span>Wish Of Love Kadın Parfüm Edt 50 Ml. 1193492</div>
+                        <div class="share-product">
+                            <div class="product-name"> <span>Avon </span>Wish Of Love Kadın Parfüm Edt 50 Ml. 1193492</div>
+                            <div class="share-icon"><i class="fa-solid fa-arrow-up-from-bracket"></i></div>
+                        </div>
                         <div class="product-reputation">
                             <div class="products-vote">
                                 <p>4.6</p>
@@ -199,6 +227,7 @@
                             <div class="reviews">
                                 <p class="reviews-text-p"><span class="reviews-text-span">30804</span> Değerlendirme</p>
                                 <img src="https://cdn.dsmcdn.com/mobile/reviewrating/kamera-emoji6x.png"/>
+                                <i class="fa-solid fa-chevron-right"></i>
                             </div>
                             <div class="product-seperate"></div>
                             <div class="product-questions">
@@ -207,7 +236,7 @@
                             <div class="product-seperate"></div>
                             <div class="products-favorites">
                                 <i class="fa-regular fa-heart" style="color: #666;"></i>
-                                <p class="reviews-text-p"><span class="reviews-text-span">358954</span> Favori</p>
+                                <p class="reviews-text-p"><span class="reviews-text-span">358954&nbsp; </span><span class="reviews-text-span-web"> Favori</span><span class="reviews-text-span-mobile">B</span></p>
                             </div>
                         </div>
                         <div class="product-price">
@@ -221,7 +250,54 @@
                             <i class="fa-solid fa-truck-fast"></i> 
                             <p><span>Hızlı Teslimat:</span> 2 gün içinde kargoda</p>
                         </div>
+                        <div class="other-sales-person-mobile">
+                            <div class="other-sales-person-mobile-title">
+                                <p>Satıcı : <span >Ucuzvar </span></p> 
+                                <div class="points">9.5</div>
+                            </div>
+                            <div class="tickets-container">
+                                <div class="tickets">
+                                    <div class="ticket-one">
+                                        <div class="ticket-icon">
+                                            <i class="fa-solid fa-award fa-2xs" ></i>
+                                        </div>
+                                        <span class="ticket-one-text">Başarılı Satıcı</span>
+                                    </div>
+                                    <div class="ticket-two">
+                                        <div class="ticket-icon-two">
+                                            <i class="fa-solid fa-truck-fast fa-2xs"></i>
+                                        </div>
+                                        <span clasS="ticket-two-text">Hızlı Satıcı</span>
+                                    </div>
+                                </div>
+                                <div class="tickets-text" >
+                                    <p>2278 Soru & Cevap</p>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>        
+                            </div>
+                            <div class="other-invoice">
+                                <div class="other-invoice-title">
+                                    <div class="other-invoice-icon">
+                                        <i class="fa-solid fa-receipt " ></i>
+                                    </div>
+                                    <p> Kurumsal Faturaya Uygun!</p>
+                                </div>
+                                <button>İncele </button>   
+                            </div>
+                            <div class="campaign-mobile">
+                                <p>Ürünün Kampanyaları</p>
+                                <div class="campaign-mobile-container">
+                                    <div class="campaign-mobile-icon">
+                                        <i class="fa-solid fa-box"></i>
+                                    </div>
+                                    <p>150 TL ve Üzeri Kargo Bedava (Satıcı Karşılar)</p>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mobile-divider"></div>
                         <div class="invitation">
+                            <p class="mobile-text">Öne Çıkanlar</p>
                             <img src="https://cdn.dsmcdn.com/indexing-sticker-stamp/moon/b701b0f3-5cd6-466c-969f-a0a0bcd69f22.png"/>
                         </div>
                         <div class="features-container">
@@ -311,6 +387,7 @@
                         <div class="all-features-button">
                             <button>ÜRÜNÜN TÜM ÖZELLİKLERİ <i class="fa-solid fa-chevron-right"></i></button>
                         </div>
+                        <div class="mobile-divider"></div>
                     </div>
                     <div class="other">
                         <div class="other-invoice">
@@ -906,6 +983,7 @@
                                     </div>
                                 </div>                           
                             </div>
+                            <div class="mobile-divider"></div>
                             <div class="about-product-second-part">
                                 <p class="second-part-title">Ürün Özellikleri</p>
                                 <div class="product-info-card-container">
@@ -932,6 +1010,7 @@
                     </div>
                     <button class="more"><i class="fa-solid fa-triangle-exclamation"></i>  Geri Bildirim Ver</button>
                     <div class="collection-container">
+                        <div class="mobile-divider"></div>
                         <p class="container-title"> İlgini Çekebilecek Koleksiyonlar</p>
                         <div class="collection-card-container">
                             <div class="collection-card">
@@ -963,6 +1042,7 @@
                                 <i class="fa-solid fa-chevron-right"></i>
                             </div>
                         </div>
+                        <div class="mobile-divider"></div>
                     </div>
                 </div>
             </main>

@@ -26,6 +26,9 @@ body{
 .header .contanier .menu-bar{
     display: none;
 }
+.img-icon{
+    display: none;
+}
 main {
     max-width: 1130px;
     margin: 0 auto;
@@ -41,7 +44,6 @@ main {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height: 80px;
     background-color: white;
     z-index: 999;
 }
@@ -117,7 +119,9 @@ main {
     transition: all 100ms ease-in-out ;
     position: relative;
 }
-
+.categories-product-mobile{
+    display: none;
+}
 .nav-icon {
     color: #fff;
     transition: all 100ms ease-in-out ;
@@ -309,6 +313,9 @@ main {
 .category ul li {
     padding: 0px 5px;
 }
+.category ul li i{
+    color:orange
+}
 .category .product-categroy-name{
     color: #4a4949;
     font-weight: 600;
@@ -414,6 +421,14 @@ main {
     padding: 0px 5px;
     margin-block-start: 0px;
 }
+.price-left-icon i{
+    color:#666;
+    font-size: 8px;
+    margin-bottom: 6px;
+}
+.price-icon i{
+    color: #ffa500;
+}
 .product-info .product-favorites p span{
     font-weight: 600;
 }
@@ -421,6 +436,9 @@ main {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 18px;
     font-weight: 400;
+}
+.share-icon{
+    display: none;
 }
 .product-info .product-name span{
     font-weight: 600;
@@ -432,6 +450,7 @@ main {
     width: 100%;
     height: 20px;
     margin-top: 20px;
+   
 }
 .product-info .product-reputation .products-vote{
     display: flex;
@@ -465,6 +484,9 @@ main {
     flex-direction: row;
     align-items: center;
 }
+.reviews i{
+    display: none;
+}
 .reviews-text-p{
     font-size: 11px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -485,6 +507,10 @@ main {
     font-weight: 600;
     color: black;
 }
+.reviews-text-span-mobile{
+    display: none;
+}
+
 .product-info .product-reputation .reviews img{
     width: 18px;
     height: 14px;
@@ -544,19 +570,22 @@ main {
     letter-spacing: 0.8px;
 }
 .product-info .add-product .add-favorites{
-    height: 50px;
-    width: 50px;
-    margin-top: 16px;
     border: 1px solid #e8e8e8;
     border-radius: 999px;
     position: relative;
     transition: all 0.3s ease-in-out;
+    position: absolute;
+    top:-490px;
+    right:130px;
+    height: 35px;
+    width: 35px;
+    box-shadow: 5px 5px 10px gainsboro ;
 }
 .product-info .add-product .add-favorites i{
     font-size: 25px;
     position: absolute;
     top: 13px;
-    left: 13px;
+    left: 10px;
     color: #8c8c8c;
 }
 .product-info .add-product .add-favorites:hover{
@@ -589,6 +618,9 @@ main {
 }
 .quick-delivery span{
     color: green;
+}
+.other-sales-person-mobile{
+    display: none;
 }
 .invitation img{
     width: 155px;
@@ -1797,4 +1829,510 @@ main {
 
 .last-part-container li:hover{
     cursor: pointer;
+}
+
+@media screen  and (max-width: 500px) {
+    .header{
+        width: 100%;
+    }
+    .header-list{
+        display: none;
+    }
+    .divider{
+        display: none;
+    }
+    .contanier{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fafafa;
+        height: 30px;
+        padding: 15px 10px;
+        border-bottom: 1px solid #e8e8e8;
+        position:fixed;
+        width: 100%;
+
+    }
+    .img-title{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 10px;
+    }
+    .search-web{
+        display: none;
+    }
+    .img-size-web{
+        width: 90px;
+        padding-right:50px ;
+    }
+    .img-icon{
+        display: block;
+        font-size: 25px;
+        margin-bottom: 5px;
+        margin-right:10px
+    }
+    .categories{
+        padding: 0px;
+    }
+    .categories-product-mobile{
+        display: flex;
+        flex-direction: row;
+    }
+    .categories-mobile-icon{
+        padding: 10px;
+        font-size: 23px;
+    }
+    .categories label{
+        display: none;
+    }
+  
+    .categories-2-container{
+        display: none;
+    }
+    .main-background{
+        width: 100%;
+        background-color: #fff;
+    }
+    main{
+        padding: 0px;
+    }
+    .category{
+        width: 100%;
+        padding: 5px 5px 10px 10px;
+        margin-top: 60px;
+    }
+    .category ul{
+        font-size: 12.5px;
+    }
+    .category ul li{
+        padding: 3px;
+        color: gray;
+    }
+    .category ul li i{
+        color: gray
+    }
+    .product-categroy-name{
+        color:black
+    }
+    .product-detail{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .product-detail .product-img{
+        width: 100%;
+        height: 500px;
+        background-color: #fafafa ;
+        padding: 0px;
+        border-radius: 0px;
+    }
+    .product-img-size{
+        height: 100%;
+        object-fit: contain;
+    }
+    .product-img:hover .img-zoom-lens{
+        display: none;
+    }
+    .corporate-invoice{
+        margin:15px 40px;
+        margin-bottom: 5px;
+    }
+    .cargo-truck{
+        margin:15px 40px;
+        margin-top: 5px;
+    }
+    .cargo-text{
+        font-size: 9px;
+
+    }
+    #myresult{
+        display: none;
+    }
+  
+    .product-info .add-product .add-favorites i{
+        position: absolute;
+        font-size: 20px;
+        left:8.5px;
+        top:8px;
+        color: black;
+    }
+    .product-info .add-product .add-favorites:hover{
+        box-shadow:  5px 5px 10px gainsboro ;
+    }
+    .product-info .add-product .add-favorites:hover i{
+        color: black;
+    }
+    .product-info .product-favorites{
+        padding-top:10px;
+        background-color: transparent;
+        margin-bottom: 5px;
+    }
+    .product-info .product-favorites i{
+        color: #1f6bc1;
+    }
+    .price-icon{
+        display: none;
+    }
+    .product-info .product-favorites p{
+        color: #1f6bc1;
+        padding-left: 0px;
+        font-size: 11.5px;
+        font-weight: 600;
+        padding-left: 15px;
+    }
+    .product-info .product-favorites p span{
+        color: #1f6bc1;
+        margin-bottom: 0px;
+    }
+    .share-product{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .share-icon{
+        display: block;
+        margin-left: 100px;
+        font-size: 17.5px;
+        margin-bottom: 5px;
+    }
+    .product-name{
+        font-size: 14px;
+        padding-left: 15px;
+    }
+    .product-info{
+        position: relative;
+        margin: 0px;
+    }
+    .product-info .product-reputation .products-vote{
+        border-right: 1px solid #999;
+        padding-right: 5px;
+        padding-left: 15px;
+    }
+    .product-info .product-reputation .products-vote p{
+        margin-right: 7px;
+        margin-bottom: 2px;
+    }
+    .stars{
+        font-size: 11px;
+        padding-top: 0px;
+        gap: 0px;
+    }
+    .product-seperate{
+        display: none;
+    }
+    .product-questions{
+        display: none;
+    }
+    .reviews{
+        padding-left: 5px;
+        margin-right: 100px;
+    }
+    .reviews i{
+        display: block;
+        padding-left: 5px;
+        font-size: 10px;
+    }
+    .products-favorites .reviews-text-p{
+        font-size: 14px;
+        display: flex;
+        flex-direction: row;
+        
+    }
+    .product-info .product-reputation .products-favorites i{
+        font-size: 16px;
+    }
+    .product-info .product-reputation .reviews img {
+        width: 25px;
+        height: 20px;
+    }
+    .products-favorites .reviews-text-span{
+        font-weight: 400;
+    }
+    .reviews-text-span-mobile{
+        display: block;
+    }
+    .reviews-text-span-web{
+        display: none;
+    }
+    
+    .product-info .product-price p{
+        display: none;
+    }
+    .product-info .add-product .add-cart {
+        display: none;
+    }
+    .quick-delivery {
+        display: none;
+    }
+    .product-info .product-price{
+        width: 93%;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .other-sales-person-mobile{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+    .other-sales-person-mobile-title {
+        display: flex;
+        flex-direction: row;
+        font-size: 13.5px;
+        margin-bottom: 10px;
+        padding-left: 15px;
+    }
+    .other-sales-person-mobile-title p{
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+    }
+    .other-sales-person-mobile-title p span{
+        font-size: 13.5px;
+        color: #1f6bc1;
+        font-weight: 600;
+    }
+    .tickets-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #e8e8e8;
+        width: 90%;
+        margin-bottom: 65px;
+        padding-left: 15px;
+    }
+    .tickets-text{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-right: 10px;
+    }
+    .tickets-text p{
+        margin-block-start: 3px;
+        padding-right: 10px;
+    }
+    .other-sales-person-mobile .other-invoice{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        top: 80px;
+        background-color: #e4eefb;;
+        width: 88%;
+        border-radius: 5px;
+        margin-left: 15px;
+    }
+    .other-sales-person-mobile .other-invoice p{
+        margin-block-start: 5px;
+        font-weight: 600;
+        color: black;
+        font-size: 13px;
+    }
+    .other-invoice-icon{
+        background-color: #1f6bc1;
+        padding: 8px 10px;
+        border-radius: 999px;
+        margin-right: 10px;
+    }
+    .other-invoice-icon i{
+        color: #fff;
+        font-size: 15px;
+    }
+    .other-invoice-title{
+        display: flex;
+        flex-direction: row;
+    }
+    .other-invoice button{
+        margin-right: 10px;
+        font-size: 10px;
+        padding: 4px 12px; 
+        color: #1f6bc1;
+        background-color: #fff;
+        border: 1px solid #1f6bc1;
+        border-radius: 5px;
+    }
+    .other-sales-person-mobile .campaign-mobile{
+        width: 90%;
+        border-top: 2px solid #e8e8e8;
+        padding-top: 20px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+    }
+    .other-sales-person-mobile .campaign-mobile p{
+        color: black;
+        font-weight: 600;
+        font-size: 15px;
+        margin-block-start: 0px;
+    }
+    .campaign-mobile-container{
+        border: 1px solid #e8e8e8;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 5px;
+        margin-top: 15px;
+        border-radius: 5px;
+        width: 95%;
+    }
+    .campaign-mobile-icon{
+        height: 23px;
+        width: 23px;
+        background-color: #999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        color: #fff;
+    }
+    .campaign-mobile-container p{
+        font-size: 11px !important;
+        padding-left: 10px;
+        margin-block-end: 0px;
+        padding-right: 160px;
+    }
+    .mobile-text{
+        color: black;
+        font-weight: 600;
+        font-size: 15px;
+        margin-block-start: 0px;
+        padding-top: 10px;
+        padding-left: 15px;
+    }
+    .mobile-divider{
+        height: 15px;
+        background-color: #fafafa;
+        border-bottom: 1px solid #e8e8e8;
+        border-top: 1px solid #e8e8e8;
+        width: 100%;
+    }
+    .invitation{
+        padding-bottom: 10px;
+    }
+    .invitation img{
+        height: 50px;
+        width: 200px;
+        padding-top: 10px;
+        padding-left: 15px;
+    }
+    .features-container{
+        display: none;
+    }
+    .all-features-button{
+        display: none;
+    }
+    .other{
+        display: none;
+    }
+    .product-info-container{
+        position: absolute;
+        top: 1100px;
+        width: 100%;
+    }
+    .product-info-container .container-title {
+        font-size: 15px;
+        width: 100%;
+        padding-left: 15px;
+    }
+    .about-product{
+        border: none;
+        text-align: justify;
+    }
+    .about-product-first-part{
+        margin: 0px;
+        padding-left: 15px;
+    }
+    .product-info-features .features-text{
+        align-items: flex-start;
+        padding: 0px;
+        padding-bottom: 5px;
+    }
+    .product-info-features .features-text i{
+        color: orange;
+    }
+    .about-product .product-image-box{
+        display: none;
+    }
+    .product-info-title{
+        display: none;
+    }
+    .similar-products-container{
+        margin-top: 2000px;
+    }
+    .about-product-second-part {
+        padding: 0px;
+        padding-left: 15px;
+    }
+    .about-product-second-part p{
+        font-size: 15px;
+    }
+    .product-info-card{
+        background-color: #FFF;
+        border-bottom: 1px solid #e8e8e8;
+        width: 90%;
+        padding: 0px;
+        border-radius: none;
+    }
+    .features-card-title{
+        color: black;
+        font-size: 14px;
+    }
+    .features-card-subtitle{
+        color: #999;
+        font-weight: 400;
+    }
+    .collection-container{
+        position: absolute;
+        top:1910px;
+        width: 100%;
+    }
+    .container-title{
+        font-size: 15px;
+        padding-left: 15px;
+    }
+    .collection-card-container{
+        padding-left: 15px;
+        overflow: hidden;
+    }
+    .collection-card-container i{
+        display: none;
+    }
+    .collection-card{
+        width: 45%;
+        background-color: #fff4ec;
+        padding-left: 5px;
+        padding: 5px;
+        margin-bottom: 20px;
+    }
+    .collection-card-container .collection-card .collection-text{
+        padding-left: 5px;
+    }
+    .colleciton-text-title{
+        font-size: 12px;
+    }
+    .colleciton-text-subtitle{
+        font-size: 12px;
+    }
+    .collection-img-container{
+        padding: 5px;
+        overflow: hidden;
+    }
+    .collection-img-container img{
+        height: 90px;
+        width: 60px;
+    }
+    .collection-button{
+        display: none;
+    }
+    .other-person-container{
+        position: absolute;
+        top: 2130px;
+    }
+    .about-card{
+        background-color: red;
+        border: 1px solid #e8e8e8;
+    }
+    
 }

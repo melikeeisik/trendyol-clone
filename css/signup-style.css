@@ -299,6 +299,26 @@ body{
 .login-form{
     padding: 35px 35px 15px 35px;
 }
+.error-box{
+    background-color: #fff4f6;
+    color: #d0021b;
+    height: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid #d0021b;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 10px;
+    margin-bottom: 10px;
+    display: none;
+}
+.error-icon{
+    padding-right: 10px;
+}
+
 .e-mail p{ 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 13.5px;
@@ -384,12 +404,21 @@ input[type=password]:focus {
     margin-bottom: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
+
 .gender-button button{
     border: 1px solid #e8e8e8;
     background-color:   #faf9f9;
     color: #666;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 600;
+}
+.woman{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.men{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 .checbox-options-container{
     display: flex;
