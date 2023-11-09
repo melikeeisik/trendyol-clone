@@ -136,6 +136,9 @@ body{
 .categories-box:hover .account-container{
     display: flex;
 }
+.categories-box:hover .user-container{
+    display: none;
+}
 
 .categories{
     display: flex;
@@ -719,7 +722,6 @@ img.rounded-corners {
     border-color: white transparent;
 }
 .triangle::before {
-
     content: '';
     position: absolute;
     left: -10px;
@@ -730,6 +732,45 @@ img.rounded-corners {
     border-style: solid;
     border-width: 0 10.5px 10.5px 10.5px;
     border-color: transparent transparent #e8e8e8 transparent;
+}
+.user-container{
+    background-color: #fff;
+    position: absolute;
+    left: -60px;
+    top:30px;
+    border: 1px solid #e8e8e8;
+    z-index: 1;
+    box-shadow: 5px 5px 10px gainsboro;
+    border-radius: 10px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+.user-mail-box{
+    color: rgb(255, 165, 0);
+    padding: 15px;
+    padding-bottom: 0px;
+}
+.user-container ul{
+    list-style: none;
+    line-height: 40px;
+    font-size: 13px;
+    font-weight: 400;
+    padding-left:0px ;
+    padding: 15px;
+
+}
+.user-container-element{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.user-container-element i{
+    font-size: 16px;
+    color: #4d4d4d;
+    margin-right: 15px;
 }
 .login-button{
     background-color: orange;
