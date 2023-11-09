@@ -8,7 +8,6 @@ const gender = document.querySelectorAll(".gender-button button")
 const submitBtn = document.querySelector(".last-button")
 const errorBox = document.querySelector(".error-box")
 const passwordVisibility = document.querySelector(".eye-icon")
-//const openEye=document.getElementById("open-eye")
 const closeEye=document.getElementById("close-eye")
 
 console.log(passwordVisibility)
@@ -68,6 +67,7 @@ function setUser(){
         }else{
             userList.push(user)
             localStorage.setItem("userList" ,JSON.stringify(userList))
+            sessionStorage.setItem("currentloggedin", userMail)
             form.submit()
 
         }

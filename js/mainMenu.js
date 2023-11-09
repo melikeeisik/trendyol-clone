@@ -1,3 +1,8 @@
+const favoritesBtn = document.getElementById("favorites-button")
+
+
+let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
+
 let toggle=false;
 
 const toggleMenu = () => {
@@ -21,3 +26,12 @@ const closeDrawer =()=>{
         closeText.style.display="none";
     }
 }
+
+favoritesBtn.addEventListener("click", e=>{
+    if(activeUser.length == 0){
+        window.location.href="./login.html"
+    }else{
+        favoritesBtn.setAttribute("style" ,"color:red")
+    }
+})
+

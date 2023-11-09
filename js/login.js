@@ -7,19 +7,21 @@ const passwordVisibility = document.querySelector(".eye-icon")
 const closeEye=document.getElementById("close-eye")
 
 let userList = JSON.parse(localStorage.getItem("userList")) || []
-
+let activeUser = JSON.parse(sessionStorage.getItem("activeUser")) || []
 
 
 loginBtn.addEventListener("click", e=>{
     e.preventDefault()
     const findMail = userList.find(item => item.userMail == email.value)
+    console.log(findMail.userMail)
     const findPassword = userList.find(item => item.userPassword == password.value)
     if(findMail && findPassword){
+        sessionStorage.setItem("currentloggedin", JSON.stringify(findMail.userMail))
         form.submit()
     }else if(findMail && !findPassword){
         errorBox.style.display="flex"
         let pTag = errorBox.querySelectorAll("p")
-        console.log(pTag)
+        //console.log(pTag)
         if(pTag.length==0){
             let errorMessage = document.createElement("p")
             errorMessage.innerHTML="Hatalı şifre"

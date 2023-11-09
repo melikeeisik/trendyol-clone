@@ -62,6 +62,11 @@
               }
             }
         </script>
+        <style>
+            .active-favorites{
+                color:#ffa500;
+            }
+        </style>
     </head>
     <body>
         <div class="header">
@@ -243,8 +248,8 @@
                             <p>150 TL</p>
                         </div>
                         <div class="add-product">
-                            <button class="add-cart" > <span class="add-cart-text">Sepete Ekle</span></button>
-                            <div class="add-favorites"><i class="fa-regular fa-heart" ></i></div>
+                            <button class="add-cart" id="add-cart" > <span class="add-cart-text" id="add-cart-text">Sepete Ekle</span></button>
+                            <div class="add-favorites" id="add-favorites"><i class="fa-regular fa-heart" ></i></div>
                         </div>
                         <div class="quick-delivery">
                             <i class="fa-solid fa-truck-fast"></i> 
@@ -1198,5 +1203,8 @@
         <script>
             imageZoom("myimage", "myresult");
         </script>
+        <script src="js/productDetail.js"></script>
+
+        
     </body>
 </html>

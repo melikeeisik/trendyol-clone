@@ -572,20 +572,18 @@ main {
 .product-info .add-product .add-favorites{
     border: 1px solid #e8e8e8;
     border-radius: 999px;
-    position: relative;
     transition: all 0.3s ease-in-out;
-    position: absolute;
-    top:-490px;
-    right:130px;
-    height: 35px;
-    width: 35px;
+    position: relative;
+    top: 5px;
+    height: 45px;
+    width: 45px;
     box-shadow: 5px 5px 10px gainsboro ;
 }
 .product-info .add-product .add-favorites i{
     font-size: 25px;
     position: absolute;
-    top: 13px;
-    left: 10px;
+    top: 12px;
+    left: 11px;
     color: #8c8c8c;
 }
 .product-info .add-product .add-favorites:hover{
