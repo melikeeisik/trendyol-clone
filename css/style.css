@@ -189,11 +189,15 @@ body{
     justify-content: center;
     align-items: center;
     overflow: hidden;
+
 }
 .marka-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    scroll-behavior: smooth;
+
+    
 }
 
 .konumlama{
@@ -219,6 +223,9 @@ body{
     width: 20px;
     height: 20px;
     left : -50px;
+}
+.arrow-size:hover{
+    cursor: pointer;
 }
 .pages{
     display: grid;
@@ -751,6 +758,7 @@ img.rounded-corners {
     color: rgb(255, 165, 0);
     padding: 15px;
     padding-bottom: 0px;
+    font-size: 14px
 }
 .user-container ul{
     list-style: none;
@@ -759,13 +767,16 @@ img.rounded-corners {
     font-weight: 400;
     padding-left:0px ;
     padding: 15px;
-
 }
 .user-container-element{
     display: flex;
     flex-direction: row;
     align-items: center;
     
+}
+.user-container-element:hover{
+    background-color: #fffaf6;
+    border-radius: 5px;
 }
 .user-container-element i{
     font-size: 16px;

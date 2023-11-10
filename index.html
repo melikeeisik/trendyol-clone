@@ -68,16 +68,11 @@
                     <li>Giriş Yap 
                         <div class="triangle"></div>
                         <div class="account-container" id="account-container">
-                            <a target="_blank" href= "/login.html">
-                                <button class="login-button">Giriş Yap</button> 
-                            </a>
-                            <a target="_blank" href="/signup.html">
-                                <button class="signup-button">Üye Ol</button>
-                            </a>
+                            <button class="login-button">Giriş Yap</button> 
+                            <button class="signup-button">Üye Ol</button>
                         </div>
                         <div class="user-container">
                             <div class="user-mail-box">
-                                mail
                             </div>
                             <ul>
                                 <li class="user-container-element"><i class="fa-solid fa-box"></i>Tüm Siparişlerim</li>
@@ -85,6 +80,7 @@
                                 <li class="user-container-element"><i class="fa-regular fa-envelope"></i>Satıcı Mesajlarım</li>
                                 <li class="user-container-element"><i class="fa-solid fa-tag  " ></i>İndirim Kupanlarım</li>
                                 <li class="user-container-element"><i class="fa-regular fa-user"></i>Kullanıcı Bilgilerim</li>
+                                <li class="user-container-element" id="log-out"><i class="fa-solid fa-door-open"></i>Çıkış Yap</li>
                             </ul>
                         </div>
                     </li>
@@ -157,7 +153,7 @@
     <div class="divider"></div>
     <main class="main">
         <div class="marka-container">
-            <div class="arrow-location" >
+            <div class="arrow-location" id="arrow-left" >
                 <img class = "arrow-size" src="images/arrow-left.svg">
             </div>
             <div class="markalar" >
@@ -186,7 +182,7 @@
                     <span >Philips</span>
                 </a>
             </div>
-            <div class="arrow-location" >
+            <div class="arrow-location" id="arrow-right" >
                 <img class = "arrow-size" src="images/arrow-right.svg">
             </div>
         </div>
