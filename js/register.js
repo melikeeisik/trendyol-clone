@@ -44,14 +44,17 @@ function checkValidity(eleman){
 function setUser(){
     const userMail = email.value;
     const userPassword = password.value;
+    userFavorites = []
     console.log(userMail, userPassword)
 
     const user ={
         userMail : userMail,
         userPassword : userPassword,
+        userFavorites : userFavorites,
     }
 
     const mailAddres = userList.find(item => item.userMail == email.value)
+    console.log(mailAddres)
         if(mailAddres){
             errorBox.style.display="flex"
             let pTag = errorBox.querySelectorAll("p")
@@ -67,7 +70,7 @@ function setUser(){
         }else{
             userList.push(user)
             localStorage.setItem("userList" ,JSON.stringify(userList))
-            sessionStorage.setItem("currentloggedin", userMail)
+            sessionStorage.setItem("currentloggedin", JSON.stringify(userMail))
             form.submit()
 
         }

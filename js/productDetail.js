@@ -15,7 +15,7 @@ addCart.addEventListener("click", e=>{
 
 addFavorites.addEventListener("click", e=>{
     addFavorites.querySelector("i").classList.remove("fa-regular", "fa-heart")
-    addFavorites.querySelector("i").classList.add("fa-solid","fa-heart",)
+    addFavorites.querySelector("i").classList.add("fa-solid","fa-heart")
     addFavorites.querySelector("i").setAttribute("style","color:#ffa500;")
 })
 

@@ -7,13 +7,11 @@ const passwordVisibility = document.querySelector(".eye-icon")
 const closeEye=document.getElementById("close-eye")
 
 let userList = JSON.parse(localStorage.getItem("userList")) || []
-let activeUser = JSON.parse(sessionStorage.getItem("activeUser")) || []
-
 
 loginBtn.addEventListener("click", e=>{
     e.preventDefault()
     const findMail = userList.find(item => item.userMail == email.value)
-    console.log(findMail.userMail)
+    console.log(findMail)
     const findPassword = userList.find(item => item.userPassword == password.value)
     if(findMail && findPassword){
         sessionStorage.setItem("currentloggedin", JSON.stringify(findMail.userMail))

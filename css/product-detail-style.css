@@ -721,9 +721,9 @@ main {
     height: 230px;
     width: 500px;
     background-color: white;
-    top: 35px;
-    right: 150px;
-    z-index: 1;
+    top: 540px;
+    right: 110px;
+    z-index: 9;
     border: 1px solid #e8e8e8;
     border-radius: 5px;
     box-shadow: 5px 5px 10px gainsboro;

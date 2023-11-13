@@ -195,11 +195,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    scroll-behavior: smooth;
-
-    
+    scroll-behavior: smooth;   
 }
-
 .konumlama{
     display: flex;
     flex-direction: column;
@@ -207,10 +204,9 @@ body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-decoration:none;
     color : black;
+
 }
 .marka-img{
-    margin-left: 200px;
-    margin-right: 200px;
     width: 70px;
     height: 70px;
     border-radius: 50px;
