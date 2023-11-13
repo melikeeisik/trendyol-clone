@@ -89,7 +89,7 @@ favoritesBtn.addEventListener("click", e=>{
        
     }else{
         console.log("kullanici var")
-        favoritesBtn.style.color="red"
+        window.location.href="./favorites.html"
     }
 })
 

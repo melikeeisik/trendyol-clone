@@ -90,18 +90,21 @@ passwordVisibility.addEventListener("click", e=>{
 })
 submitBtn.addEventListener("click" ,e=>{
     e.preventDefault();
+    let isValid = true ;
     [...form.elements].forEach(e=> {
         if(!e.checkValidity()){
+            isValid=false
+            console.log(e.validity)
             e.setAttribute("style", "background-color:#fff4f6;border: 1px solid #d0021b;")
             checkValidity(e)
         }else{
             e.removeAttribute("style")   
-            setUser()
-
         }
     }
     )
-
+    if(isValid){
+        setUser()
+    }
 })
 
 
