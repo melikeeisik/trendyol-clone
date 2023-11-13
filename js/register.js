@@ -64,7 +64,7 @@ function setUser(){
                 email.setAttribute("style", "background-color:#fff4f6;border: 1px solid #d0021b;")
                 errorBox.appendChild(errorMessage)  
             }else{
-                "style", "background-color:#fff4f6;border: 1px solid #d0021b;"
+                email.setAttribute("style", "background-color:#fff4f6;border: 1px solid #d0021b;")
                 pTag[0].innerHTML = "Bu maile ait kullanıcı bulunmaktadır. Yeni mail deneyiniz."
             }
         }else{

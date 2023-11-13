@@ -12,7 +12,7 @@ const arrowRight=document.getElementById("arrow-right")
 const markaContainer =document.querySelector(".marka-container")
 const markaKonum = document.querySelectorAll(".konumlama")
 const addFavoritesBtn = document.querySelectorAll(".product-icon-contanier ")
-
+const iTags = document.querySelectorAll(".product-icon-contanier i ")
 
 const products=[
     {
@@ -197,9 +197,20 @@ addFavoritesBtn.forEach(item=>
             item.querySelector("i").classList.remove("fa-solid","fa-heart")
             item.querySelector("i").classList.add("fa-regular","fa-heart")
             item.removeAttribute("style", "color:#ffa500")
-
         }
-            
-
     } )
 )
+function loadPage(){
+    const user = userList.find(item => item.userMail == activeUser)
+    iTags.forEach(iTag => {
+        user.userFavorites.forEach(fav =>{ 
+            if(fav == iTag.closest(".product-box").id){
+                iTag.classList.remove("fa-regular","fa-heart")
+                iTag.classList.add("fa-solid", "fa-heart")
+                iTag.setAttribute("style", "color:#ffa500")
+                console.log("VAR ", fav)
+            }})
+            }
+        )       
+    }
+window.addEventListener("load", loadPage)
