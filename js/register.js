@@ -10,7 +10,6 @@ const errorBox = document.querySelector(".error-box")
 const passwordVisibility = document.querySelector(".eye-icon")
 const closeEye=document.getElementById("close-eye")
 
-console.log(passwordVisibility)
 let userList = JSON.parse(localStorage.getItem("userList")) || []
 //localStorage.removeItem("userList")
 
@@ -31,6 +30,7 @@ function msg (eleman){
     }
 }
 function checkValidity(eleman){
+    console.log(eleman.validity)
     errorBox.style.display="flex"
     let pTag = errorBox.querySelectorAll("p")
     if(pTag.length==0){
@@ -39,13 +39,13 @@ function checkValidity(eleman){
         errorBox.appendChild(errorMessage)  
     }else{
         pTag[0].innerHTML = msg(eleman)
-    }}
+    }
+}
 
 function setUser(){
     const userMail = email.value;
     const userPassword = password.value;
     userFavorites = []
-    console.log(userMail, userPassword)
 
     const user ={
         userMail : userMail,
@@ -95,11 +95,12 @@ submitBtn.addEventListener("click" ,e=>{
             e.setAttribute("style", "background-color:#fff4f6;border: 1px solid #d0021b;")
             checkValidity(e)
         }else{
-            e.removeAttribute("style")
-            setUser();
-           
+            e.removeAttribute("style")   
+            setUser()
+
         }
-    })
+    }
+    )
 
 })
 

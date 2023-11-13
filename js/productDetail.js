@@ -1,7 +1,9 @@
+const bodyId = document.body.id
 const addCart= document.getElementById("add-cart")
 const addFavorites=document.getElementById("add-favorites")
 const addCartText = document.getElementById("add-cart-text")
 
+let userList = JSON.parse(localStorage.getItem("userList")) || []
 let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
 
 addCart.addEventListener("click", e=>{
@@ -14,9 +16,23 @@ addCart.addEventListener("click", e=>{
 })
 
 addFavorites.addEventListener("click", e=>{
+  let user = userList.find(item => item.userMail == activeUser)
+  let favori = user.userFavorites.find(item => item == bodyId)
+  if(favori){
+    const index = user.userFavorites.findIndex(item => item == bodyId)
+    user.userFavorites.splice(index,1)
+    localStorage.setItem("userList", JSON.stringify(userList))
+    addFavorites.querySelector("i").classList.remove("fa-solid","fa-heart")
+    addFavorites.querySelector("i").classList.add("fa-regular", "fa-heart")
+    addFavorites.querySelector("i").removeAttribute("style","color:#ffa500;")
+  }else{
+    user.userFavorites.push(bodyId)
+    localStorage.setItem("userList", JSON.stringify(userList))
     addFavorites.querySelector("i").classList.remove("fa-regular", "fa-heart")
     addFavorites.querySelector("i").classList.add("fa-solid","fa-heart")
     addFavorites.querySelector("i").setAttribute("style","color:#ffa500;")
+    
+  }
 })
 
 function changeText(item, newText){
@@ -46,3 +62,15 @@ function changeText(item, newText){
       });
       };
 }
+
+function loadPage() {
+  let user = userList.find(item => item.userMail == activeUser)
+  let favori = user.userFavorites.find(item => item == bodyId)
+  if(favori){
+    addFavorites.querySelector("i").classList.remove("fa-regular", "fa-heart")
+    addFavorites.querySelector("i").classList.add("fa-solid","fa-heart")
+    addFavorites.querySelector("i").setAttribute("style","color:#ffa500;")
+  }
+}
+console.log("efw",bodyId)
+window.addEventListener("load", loadPage)
