@@ -1,8 +1,13 @@
+const favoritesContainer = document.querySelector(".favorites-product")
 const productContainer = document.querySelector(".product-container")
-
-
-
+const productImg = document.querySelector(".product-image-container img")
+const productName = document.querySelector(".product-full-name")
+const productBrand = document.querySelector(".product-brans")
+const productPrice = document.querySelector(".product-price")
+const warningBox = document.querySelector(".warning-box")
 let productsAll = JSON.parse(localStorage.getItem("products")) || [];
+let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
+const userList = JSON.parse(localStorage.getItem("userList")) || []
 
 
 const products=[
@@ -55,3 +60,61 @@ products.forEach(element =>{
     localStorage.setItem("productsAll" ,JSON.stringify(productsAll))
 
 })
+
+function favoritesProduct(products ,productBox){
+    const productImg = productBox.querySelector(".product-image-container img")
+    const productBrand = productBox.querySelector(".product-brans")
+    const productName = productBox.querySelector(".product-full-name")
+    const productPrice = productBox.querySelector(".product-price")
+    const deleteProduct = productBox.querySelector(".delete-product-icon")
+
+    productBox.setAttribute('style', 'display:flex')
+
+    productImg.src=products.productImg;
+    productBrand.innerHTML = products.productTilte 
+    productName.innerHTML= products.productName 
+    productPrice.innerHTML=products.productPrice
+    
+    deleteProduct.addEventListener("click", function(e) {
+            const user = userList.find(item => item.userMail == activeUser)
+            console.log("civciv" ,user.userFavorites.length)
+            
+                const index = user.userFavorites.findIndex(item => item == products.productId)
+                user.userFavorites.splice(index,1)
+                localStorage.setItem("userList", JSON.stringify(userList))
+                productBox.remove()
+                if(user.userFavorites.length== 0){
+                    warningBox.setAttribute("style", "display:flex")
+                }
+    })
+}
+    
+    
+
+
+
+function loadPage(){
+    const user = userList.find(item => item.userMail == activeUser)
+    if(user){
+        if(user.userFavorites.length==0){
+            productContainer.setAttribute("style", "display:none")
+            warningBox.setAttribute("style", "display:flex")
+        }else 
+        {
+            warningBox.removeAttribute("style")
+            user.userFavorites.forEach(userFavorite=>{
+                const matchProduct = productsAll.filter(product => product.productId == userFavorite)
+                matchProduct.forEach(item => {
+                    let productBox = productContainer.cloneNode(true)                      
+                    favoritesProduct(item, productBox)
+                    favoritesContainer.append(productBox)
+                })     
+         })
+         productContainer.setAttribute('style', 'display:none')
+        }
+}}
+   
+
+
+
+window.addEventListener("load" ,loadPage)
