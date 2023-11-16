@@ -5,6 +5,7 @@
         <title>Favoriler Sayfası</title>
         <link rel = "stylesheet" href = "css/favorites.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     </head>
     <body>
         <div class="header">
@@ -124,6 +125,13 @@
         </main>
         <div class="end-of-the-page-line"></div>
         <main>
+            <div class="filter-product">
+                <select class="select-price" id="select-price">
+                    <option value="filter">Filtrele</option>
+                    <option value="cheap" >En düşük fiyat</option>
+                    <option value="expensive" >En yüksek fiyat</option>
+                </select>                
+            </div>
             <div class="favorites-product"></div>
                 <div class="warning-box">
                     <div>

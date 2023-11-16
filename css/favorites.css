@@ -269,6 +269,31 @@ main{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
+.filter-product{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-right: 30px;
+}
+.select-price{
+    padding: 12px;
+    border: 1px solid #e8e8e8;
+    --selectedCol: rgb(255,165,0);
+    color: #666;
+    border-radius: 5px;
+
+}
+select:focus {
+    border-color:rgb(255,165,0) ;
+    background: #fff;
+    outline: none;
+}
+option:checked{
+  background-color: orange;
+  color: #fff;
+}
+
+  
 .favorites-header{
     display: flex;
     flex-direction: row;
