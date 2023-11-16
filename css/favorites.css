@@ -293,7 +293,6 @@ option:checked{
   color: #fff;
 }
 
-  
 .favorites-header{
     display: flex;
     flex-direction: row;
@@ -366,6 +365,9 @@ option:checked{
     padding: 5px 10px;
     border-radius: 10px;
     margin-bottom: 20px;
+}
+.product-container:hover{
+    box-shadow: -2px -2px 10px gainsboro;
 }
 .product-image-container{
     width: 100%;
