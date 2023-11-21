@@ -1,4 +1,5 @@
 const favoritesBtn = document.getElementById("favorites-button")
+const cartBtn = document.getElementById("cart-button")
 const userBtn = document.getElementById("user-button")
 const accountContainer =document.getElementById("account-container")
 const userContainer = document.querySelector(".user-container")
@@ -55,6 +56,17 @@ favoritesBtn.addEventListener("click", e=>{
         window.location.href="./favorites.html"
     }
 })
+
+cartBtn.addEventListener("click", e=> {
+    if(activeUser.length == 0){
+        window.location.href="./login.html"
+       
+    }else{
+        console.log("kullanici var")
+        window.location.href="./cart.html"
+    }
+})
+
 
 userBtn.addEventListener("mouseover", e=>{
     if(activeUser.length == 0){
