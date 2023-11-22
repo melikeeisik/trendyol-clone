@@ -68,15 +68,25 @@ function cartProduct(products ,productBox, productAmount){
         const user = userList.find(item => item.userMail == activeUser)
         const countProduct = user.userCart.findIndex(item => item.productId == products.productId)
         console.log(user.userCart[countProduct])
-        user.userCart[countProduct].productAmount = user.userCart[countProduct].productAmount  - 1 
-        localStorage.setItem("userList", JSON.stringify(userList))
-        cartProductAmount.value=user.userCart[countProduct].productAmount
-        cartProductPrice = user.userCart[countProduct].productAmount * products.productPrice
-        productPrice.innerHTML=cartProductPrice+" TL"
+        if(user.userCart[countProduct].productAmount == 1){
+            decreaseBtn.setAttribute("disabled", "disabled")
+            decreaseBtn.setAttribute("style","color:#999")
+        }else{
+            decreaseBtn.removeAttribute("disabled")
+            decreaseBtn.removeAttribute("style")
+            user.userCart[countProduct].productAmount = user.userCart[countProduct].productAmount  - 1 
+            localStorage.setItem("userList", JSON.stringify(userList))
+            cartProductAmount.value=user.userCart[countProduct].productAmount
+            cartProductPrice = user.userCart[countProduct].productAmount * products.productPrice
+            productPrice.innerHTML=cartProductPrice+" TL"
+        }
     })
     
 }
 
+function succesfullProgress(){
+    
+}
 function loadPage(){
     const user = userList.find(item => item.userMail == activeUser)
     if(user){
