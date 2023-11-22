@@ -30,7 +30,6 @@ function cartProduct(products ,productBox, productAmount){
     const increaseBtn = productBox.querySelector(".increasa-amount-button")
     const decreaseBtn = productBox.querySelector(".decrease-amount-button")
 
-
     productBox.setAttribute('style', 'display:flex')
 
     let cartProductPrice = productAmount * products.productPrice
@@ -55,38 +54,42 @@ function cartProduct(products ,productBox, productAmount){
     })
 
     increaseBtn.addEventListener("click", e=>{
+        decreaseBtn.removeAttribute("disabled")
+        decreaseBtn.removeAttribute("style")
+
         const user = userList.find(item => item.userMail == activeUser)
-        const countProduct = user.userCart.findIndex(item => item.productId == products.productId)
-        console.log(user.userCart[countProduct])
+        let countProduct = user.userCart.findIndex(item => item.productId == products.productId)
+        user.userCart[countProduct].productAmount = user.userCart[countProduct].productAmount +1 
+        localStorage.setItem("userList", JSON.stringify(userList))
+        cartProductAmount.value=user.userCart[countProduct].productAmount
+        cartProductPrice = user.userCart[countProduct].productAmount * products.productPrice
+        productPrice.innerHTML=cartProductPrice+" TL"
+        console.log(user.userCart[countProduct].productAmount)
         if(user.userCart[countProduct].productAmount == 10){
-            increaseBtn.setAttribute("disabled", "disabled")
+            increaseBtn.setAttribute("disabled", "")
             increaseBtn.setAttribute("style","color:#999")
-        }else{
-            user.userCart[countProduct].productAmount = user.userCart[countProduct].productAmount +1 
-            localStorage.setItem("userList", JSON.stringify(userList))
-            cartProductAmount.value=user.userCart[countProduct].productAmount
-            cartProductPrice = user.userCart[countProduct].productAmount * products.productPrice
-            productPrice.innerHTML=cartProductPrice+" TL"
-        }
-    })
-    decreaseBtn.addEventListener("click", e=>{
-        const user = userList.find(item => item.userMail == activeUser)
-        const countProduct = user.userCart.findIndex(item => item.productId == products.productId)
-        console.log(user.userCart[countProduct])
-        if(user.userCart[countProduct].productAmount == 1){
-            decreaseBtn.setAttribute("disabled", "disabled")
-            decreaseBtn.setAttribute("style","color:#999")
-        }else{
-            decreaseBtn.removeAttribute("disabled")
-            decreaseBtn.removeAttribute("style")
-            user.userCart[countProduct].productAmount = user.userCart[countProduct].productAmount  - 1 
-            localStorage.setItem("userList", JSON.stringify(userList))
-            cartProductAmount.value=user.userCart[countProduct].productAmount
-            cartProductPrice = user.userCart[countProduct].productAmount * products.productPrice
-            productPrice.innerHTML=cartProductPrice+" TL"
         }
     })
     
+    decreaseBtn.addEventListener("click", e=>{
+        increaseBtn.removeAttribute("disabled")
+        increaseBtn.removeAttribute("style")
+
+        const user = userList.find(item => item.userMail == activeUser)
+        let countProduct = user.userCart.findIndex(item => item.productId == products.productId)
+        console.log(user.userCart[countProduct])
+        user.userCart[countProduct].productAmount = user.userCart[countProduct].productAmount  - 1 
+        localStorage.setItem("userList", JSON.stringify(userList))
+        cartProductAmount.value=user.userCart[countProduct].productAmount
+        cartProductPrice = user.userCart[countProduct].productAmount * products.productPrice
+        productPrice.innerHTML=cartProductPrice+" TL"
+        console.log(user.userCart[countProduct].productAmount)
+        if(user.userCart[countProduct].productAmount == 1){
+            decreaseBtn.setAttribute("disabled", "disabled")
+            decreaseBtn.setAttribute("style","color:#999")
+        }
+})
+     
 }
 
 function succesfullProgress(){
