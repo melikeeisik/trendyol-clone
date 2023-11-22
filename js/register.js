@@ -46,11 +46,13 @@ function setUser(){
     const userMail = email.value;
     const userPassword = password.value;
     userFavorites = []
+    userCart = []
 
     const user ={
         userMail : userMail,
         userPassword : userPassword,
         userFavorites : userFavorites,
+        userCart : userCart,
     }
 
     const mailAddres = userList.find(item => item.userMail == email.value)

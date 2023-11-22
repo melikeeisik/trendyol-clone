@@ -107,44 +107,55 @@
         <main>
             <div class="cart-container">
                 <div class="my-cart-container">
-                    <div class="my-cart-text">
-                        SEPETİM 
-                        <span class="count">DENEME</span>
-                    </div>
-                    <div class="product-container">
-                        <div class="product-brands">
-                            <p>Satıcı: </p>
-                            <span class="brands-name">DENEME</span>
-                            <div class="points">8.6</div>
-                            <i class="fa-solid fa-chevron-right"></i>
+                    <div class="my-cart-produts">
+                        <div class="my-cart-text">
+                            SEPETİM 
+                            <span class="count">DENEME</span>
                         </div>
-                        <div class="cargo-free">
-                            <i class="fa-solid fa-box"></i>
-                            <p>Kargo Bedava !</p>
-                        </div>
-                        <div class="product-part">
-                            <div class="product-detail"> 
-                                <div class="product-img">
-                                    <img src="https://cdn.dsmcdn.com/ty804/product/media/images/20230330/14/315306679/900116024/1/1_org_zoom.jpg">
-                                </div>
-                                <div class="product-text-container">
-                                    <div class="product-name">
-                                        <p class="product-brands-name">Devinka</p>
-                                        <p class="product-name">Kadın Beyaz Ispanyol Kol Geniş Yaka Ajurlu Salaş Delikli Crop </p>
+                        <div class="product-container">
+                            <div class="product-brands">
+                                <p>Satıcı: </p>
+                                <span class="brands-name"></span>
+                                <div class="points">8.6</div>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                            <div class="cargo-free">
+                                <i class="fa-solid fa-box"></i>
+                                <p>Kargo Bedava !</p>
+                            </div>
+                            <div id="" class="product-part">
+                                <div class="product-detail"> 
+                                    <div class="product-img">
+                                        <img src="">
                                     </div>
-                                    <p class="product-text">Beden : Standart</p>
-                                    <p class="product-text">Tahmini Kargoya Teslim : 2 gün içinde</p>
-                                </div>       
+                                    <div class="product-text-container">
+                                        <div class="product-name">
+                                            <p> <span class="product-brands-name"></span><span class="product-full-name"></span></p>
+                                            
+                                        </div>
+                                        <p class="product-text">Beden : Standart</p>
+                                        <p class="product-text">Tahmini Kargoya Teslim : 2 gün içinde</p>
+                                    </div>       
+                                </div>
+                                <div class="product-amount">
+                                    <button class="decrease-amount-button">-</button>
+                                    <input  type="text" pattern="[0-9]*" value="">
+                                    <button id="increase" class="increasa-amount-button">+</button>
+                                </div>
+                                <div class="product-price">150 TL</div>
+                                <div class="delete-product">
+                                    <i class="fa-regular fa-trash-can"></i>
+                                </div>
                             </div>
-                            <div class="product-amount">
-                                <button class="decrease-amount-button">-</button>
-                                <input type="text" pattern="[0-9]*" value="1">
-                                <button class="increasa-amount-button">+</button>
+                        </div>
+                        <div class="warning-box">
+                            <div class="warning">
+                                <div class="warning-box-icon">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </div>
+                                Sepetinizde ürün bulunmamaktadır.
                             </div>
-                            <div class="product-price">150 TL</div>
-                            <div class="delete-product">
-                                <i class="fa-regular fa-trash-can"></i>
-                            </div>
+                            <button class="start-shopping">Alışverişe Başla</button>
                         </div>
                     </div>
                     <div class="favorites-product">
@@ -179,7 +190,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="confirm-cart">
                     <button class="confirm-cart-button">
@@ -353,5 +363,6 @@
                 </div>
             </div>
         </div>
+        <script src="js/cart.js"></script>
     </body>
 </html>

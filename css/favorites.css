@@ -341,6 +341,9 @@ option:checked{
     right: 5px;
     top: 10px;
 }
+.product-id{
+    display: none;
+}
 .warning-box{
     display: none;
     flex-direction: row;

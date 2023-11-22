@@ -4,6 +4,7 @@ const productImg = document.querySelector(".product-image-container img")
 const productName = document.querySelector(".product-full-name")
 const productBrand = document.querySelector(".product-brans")
 const productPrice = document.querySelector(".product-price")
+const productId = document.querySelector(".buttons-container")
 const warningBox = document.querySelector(".warning-box")
 const selectPrice = document.getElementById("select-price")
 
@@ -66,6 +67,7 @@ products.forEach(element =>{
 })
 
 function favoritesProduct(products ,productBox){
+    const productId = productBox.querySelector(".buttons-container")
     const productImg = productBox.querySelector(".product-image-container img")
     const productBrand = productBox.querySelector(".product-brans")
     const productName = productBox.querySelector(".product-full-name")
@@ -74,6 +76,7 @@ function favoritesProduct(products ,productBox){
 
     productBox.setAttribute('style', 'display:flex')
 
+    productId.id = products.productId
     productImg.src=products.productImg;
     productBrand.innerHTML = products.productTilte 
     productName.innerHTML= products.productName 
@@ -81,7 +84,6 @@ function favoritesProduct(products ,productBox){
     
     deleteProduct.addEventListener("click", function(e) {
             const user = userList.find(item => item.userMail == activeUser)
-            
                 const index = user.userFavorites.findIndex(item => item == products.productId)
                 user.userFavorites.splice(index,1)
                 localStorage.setItem("userList", JSON.stringify(userList))
@@ -99,6 +101,34 @@ function removeClonesDiv(){
     });
 }
 
+function addCart(){
+    const user = userList.find(item => item.userMail == activeUser)
+    if(user){
+        const cloneContainer = document.querySelectorAll(".product-container")
+        cloneContainer.forEach(item =>{
+            const addCartBtn = item.querySelector(".add-cart-button")
+            addCartBtn.addEventListener("click", e=>{
+                const productId= e.target.closest(".buttons-container").id    
+                const isProduct = user.userCart.find(item => item.productId == productId)
+                if(isProduct){
+                    const countProduct = user.userCart.findIndex(item => item.productId == productId)
+                    console.log(user.userCart[countProduct])
+                    user.userCart[countProduct].productAmount = user.userCart[countProduct].productAmount +1 
+                    localStorage.setItem("userList", JSON.stringify(userList))
+                }else{
+                    const productAmount = 1
+                    const productAdd = {
+                        productId : productId,
+                        productAmount : productAmount 
+                    }
+                    user.userCart.push(productAdd)
+                    localStorage.setItem("userList", JSON.stringify(userList))
+
+                }
+            })
+        })    
+    }
+}
 
 selectPrice.addEventListener("change", e=>{
     const user = userList.find(item => item.userMail == activeUser)
@@ -150,6 +180,7 @@ function loadPage(){
                     favoritesContainer.append(productBox)
                 })     
          })
+         addCart()
          productContainer.setAttribute('style', 'display:none')
         }
 }}
