@@ -16,11 +16,14 @@ const decreaseBtn = document.querySelector(".decrease-amount-button")
 const increaseBtn = document.querySelector(".increasa-amount-button")
 const totalOfProduct = document.getElementById("total-price")
 const confirmList = document.querySelector(".confirm-list")
+const confirmTotal = document.querySelector(".confirm-total")
+const cargoFree = document.querySelector(".cargo-free")
 let productsAll = JSON.parse(localStorage.getItem("productsAll")) || [];
 let userList = JSON.parse(localStorage.getItem("userList")) || []
 let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
 
 function cartProduct(products ,productBox, productAmount){
+    const cargoFree = productBox.querySelector(".cargo-free")
     const productId = productBox.querySelector(".product-part")
     const productImg = productBox.querySelector(".product-img img")
     const productBrand = productBox.querySelector(".product-brands-name")
@@ -42,7 +45,8 @@ function cartProduct(products ,productBox, productAmount){
     productName.innerHTML= products.productName 
     productPrice.innerHTML=cartProductPrice+" TL"
     cartProductAmount.value=productAmount
-    
+
+
     deleteProduct.addEventListener("click", e=>{
         const user = userList.find(item => item.userMail == activeUser)
         const index = user.userCart.findIndex(item => item.productId == products.productId)
@@ -94,6 +98,7 @@ function cartProduct(products ,productBox, productAmount){
 }
 
 function calculateTotalPrice(){
+    let cargoPrice = 0
     let liList = confirmList.querySelectorAll("li")
     const productPrice = document.querySelectorAll(".product-price");
 
@@ -103,9 +108,9 @@ function calculateTotalPrice(){
     });
     totalOfProduct.innerHTML = totalPrice + " TL"
     let li = document.createElement("li")
-    if(totalPrice > 250 ){
+    if(totalPrice > 300 ){
         let p = document.createElement("p")
-        p.innerHTML="250 TL Üzeri Kargo Bedava"
+        p.innerHTML="300 TL Üzeri Kargo Bedava"
         let span = document.createElement("span")
         span.innerHTML= "-29,99TL"
         span.classList.add("cargo-price")
@@ -114,10 +119,12 @@ function calculateTotalPrice(){
             confirmList.appendChild(li)
         } 
     }else{
+        cargoPrice = 29,99;
         if (liList.length === 3) {
             liList[2].remove();
         }
     }
+    confirmTotal.innerHTML = totalPrice + cargoPrice + " TL"
 }
 
 function loadPage(){
