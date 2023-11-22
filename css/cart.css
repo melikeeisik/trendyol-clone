@@ -509,7 +509,7 @@ main{
     display: flex;
     flex-direction: column;
     border: 1px solid #e8e8e8;
-    padding: 10px 15px;
+    padding: 10px 10px;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05);
 
 }
@@ -541,6 +541,11 @@ main{
 .confirm-price{
     font-weight: 600;
     font-size: 16px;
+}
+.cargo-price{
+    font-weight: 600;
+    font-size: 16px;
+    color: rgb(255,145,0);
 }
 .total{
     display: flex;
