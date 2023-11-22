@@ -102,7 +102,22 @@ function calculateTotalPrice(){
         totalPrice += parseFloat(item.textContent.split(" "));
     });
     totalOfProduct.innerHTML = totalPrice + " TL"
-    
+    let li = document.createElement("li")
+    if(totalPrice > 250 ){
+        let p = document.createElement("p")
+        p.innerHTML="250 TL Üzeri Kargo Bedava"
+        let span = document.createElement("span")
+        span.innerHTML= "-29,99TL"
+        span.classList.add("cargo-price")
+        li.append(p , span)
+        if(liList.length <3){
+            confirmList.appendChild(li)
+        } 
+    }else{
+        if (liList.length === 3) {
+            liList[2].remove();
+        }
+    }
 }
 
 function loadPage(){
