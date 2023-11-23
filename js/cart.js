@@ -21,7 +21,8 @@ const cargoFree = document.querySelector(".cargo-free")
 const startShopping = document.querySelector(".start-shopping")
 const loadProcess = document.querySelector(".load-process")
 const updateCart = document.querySelector(".update-cart")
-Headers
+const favoritesProductBox = document.querySelector(".my-favorites-box")
+const favoritesProductContainer = document.querySelector(".my-favorites-container")
 let productsAll = JSON.parse(localStorage.getItem("productsAll")) || [];
 let userList = JSON.parse(localStorage.getItem("userList")) || []
 let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
@@ -116,6 +117,33 @@ function cartProduct(products ,productBox, productAmount){
         calculateTotalPrice();
     })  
 }
+function favoritesProduct(products ,productBox){
+    const productId = productBox.querySelector(".add-carts-button")
+    const productImg = productBox.querySelector(".my-favorites-img img")
+    const productBrand = productBox.querySelector(".my-favorites-brands")
+    const productName = productBox.querySelector(".my-favorites-name")
+    const productPrice = productBox.querySelector(".my-favorites-price")
+    const deleteProduct = productBox.querySelector(".delete-or-add-button i")
+
+    productBox.setAttribute('style', 'display:flex')
+
+    productId.id = products.productId
+    productImg.src=products.productImg;
+    productBrand.innerHTML = products.productTilte 
+    productName.innerHTML= products.productName 
+    productPrice.innerHTML=products.productPrice+" TL"
+    
+    deleteProduct.addEventListener("click", function(e) {
+            const user = userList.find(item => item.userMail == activeUser)
+                const index = user.userFavorites.findIndex(item => item == products.productId)
+                user.userFavorites.splice(index,1)
+                localStorage.setItem("userList", JSON.stringify(userList))
+                productBox.remove()
+                if(user.userFavorites.length== 0){
+                    warningBox.setAttribute("style", "display:flex")
+                }
+    })
+}
 
 
 function calculateTotalPrice(){
@@ -176,9 +204,18 @@ function loadPage(){
                     myCartProducts.append(productBox)
                 })  
             });
+            user.userFavorites.forEach(userFavorite=>{
+                const matchProduct = productsAll.filter(product => product.productId == userFavorite)
+                matchProduct.forEach(item => {
+                    let productBox = favoritesProductBox.cloneNode(true)                      
+                    favoritesProduct(item, productBox)
+                    favoritesProductContainer.append(productBox)
+                })     
+         })
             calculateTotalPrice()
         }
         productContainer.setAttribute('style', 'display:none')
+        favoritesProductBox.setAttribute("style", "display:none")
     }
 }
 
