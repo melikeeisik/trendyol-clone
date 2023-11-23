@@ -18,6 +18,10 @@ const totalOfProduct = document.getElementById("total-price")
 const confirmList = document.querySelector(".confirm-list")
 const confirmTotal = document.querySelector(".confirm-total")
 const cargoFree = document.querySelector(".cargo-free")
+const startShopping = document.querySelector(".start-shopping")
+const loadProcess = document.querySelector(".load-process")
+const updateCart = document.querySelector(".update-cart")
+Headers
 let productsAll = JSON.parse(localStorage.getItem("productsAll")) || [];
 let userList = JSON.parse(localStorage.getItem("userList")) || []
 let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
@@ -48,6 +52,14 @@ function cartProduct(products ,productBox, productAmount){
 
 
     deleteProduct.addEventListener("click", e=>{
+        loadProcess.style.display = "flex";
+        updateCart.style.display = "flex";
+        document.body.style.overflow = "hidden"
+        setTimeout(()=> {
+            loadProcess.removeAttribute("style");
+            updateCart.removeAttribute("style");
+            document.body.style.overflow = ""        
+            },3000);
         const user = userList.find(item => item.userMail == activeUser)
         const index = user.userCart.findIndex(item => item.productId == products.productId)
         user.userCart.splice(index,1)
@@ -61,6 +73,10 @@ function cartProduct(products ,productBox, productAmount){
        
     })
     increaseBtn.addEventListener("click", e=>{
+        loadProcess.setAttribute("style","display:flex")
+        updateCart.setAttribute("style", "display:flex")
+        document.body.style.overflow = "hidden"
+        setTimeout(()=> {loadProcess.removeAttribute("style"),updateCart.removeAttribute("style"),document.body.style.overflow = ""}, 3000);
         decreaseBtn.removeAttribute("disabled")
         decreaseBtn.removeAttribute("style")
 
@@ -79,6 +95,10 @@ function cartProduct(products ,productBox, productAmount){
     })
 
     decreaseBtn.addEventListener("click", e=>{
+        loadProcess.setAttribute("style","display:flex; background-color:#fff")
+        updateCart.setAttribute("style", "display:flex")
+        document.body.style.overflow = "hidden"
+        setTimeout(()=> {loadProcess.removeAttribute("style"),updateCart.removeAttribute("style"),document.body.style.overflow = ""}, 3000);
         increaseBtn.removeAttribute("disabled")
         increaseBtn.removeAttribute("style")
 
@@ -96,6 +116,7 @@ function cartProduct(products ,productBox, productAmount){
         calculateTotalPrice();
     })  
 }
+
 
 function calculateTotalPrice(){
     let cargoPrice = 0
@@ -126,6 +147,15 @@ function calculateTotalPrice(){
     }
     confirmTotal.innerHTML = totalPrice + cargoPrice + " TL"
 }
+startShopping.addEventListener("click", e=>{
+    if(activeUser.length == 0){
+        window.location.href="./login.html"
+       
+    }else{
+        console.log("kullanici var")
+        window.location.href="./index.html"
+    }
+})
 
 function loadPage(){
     const user = userList.find(item => item.userMail == activeUser)
