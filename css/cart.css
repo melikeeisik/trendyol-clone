@@ -326,6 +326,15 @@ main{
     grid-gap:20px;
     margin-top: 20px;
 }
+.black-screen{
+    width: 100%; 
+    position: absolute; 
+    height: 100vh;
+    background-color: black;
+    z-index: 999; 
+    opacity: 45%;
+    display: none;
+}
 .update-cart{
     display: none;
     flex-direction: row;
@@ -361,7 +370,7 @@ main{
     height: 250px;
     border: 1px solid #e8e8e8;
     border-radius: 5px;
-    z-index: 1;
+    z-index: 99999;
     background-color: #fff;
 }
 .load-process p{
@@ -574,6 +583,9 @@ main{
 .product-amount{
     border: 1px solid #e8e8e8; 
     border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 .product-amount button{
     width: 25px;
@@ -588,10 +600,12 @@ main{
     filter: brightness(85%);
     cursor: pointer;
 }
-.product-amount  input[type=text]{
+.product-amount .amount{
     border: none;
-    width: 22px;
+    width: 30px;
     text-align: center;
+    font-size: 15px;
+    margin-bottom: 3px;
 }
 .decrease-amount-button{
     border: none;

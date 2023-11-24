@@ -10,7 +10,7 @@ const productBrand = document.querySelector(".product-brands-name")
 const productName = document.querySelector(".product-full-name")
 const productPrice = document.querySelector(".product-price")
 const deleteProduct = document.querySelector(".delete-product")
-const cartProductAmount = document.querySelector(".product-amount input")
+let cartProductAmount = document.querySelector(".amount")
 const brandsName = document.querySelector(".brands-name")
 const decreaseBtn = document.querySelector(".decrease-amount-button")
 const increaseBtn = document.querySelector(".increasa-amount-button")
@@ -23,6 +23,8 @@ const loadProcess = document.querySelector(".load-process")
 const updateCart = document.querySelector(".update-cart")
 const favoritesProductBox = document.querySelector(".my-favorites-box")
 const favoritesProductContainer = document.querySelector(".my-favorites-container")
+const cartCount = document.querySelector(".count")
+const blackScreen= document.querySelector(".black-screen")
 let productsAll = JSON.parse(localStorage.getItem("productsAll")) || [];
 let userList = JSON.parse(localStorage.getItem("userList")) || []
 let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
@@ -35,11 +37,11 @@ function cartProduct(products ,productBox, productAmount){
     const productName = productBox.querySelector(".product-full-name")
     let productPrice = productBox.querySelector(".product-price")
     const deleteProduct = productBox.querySelector(".delete-product")
-    const cartProductAmount = productBox.querySelector(".product-amount input")
+    let cartProductAmount = productBox.querySelector(".amount")
     const brandsName = productBox.querySelector(".brands-name")
     const increaseBtn = productBox.querySelector(".increasa-amount-button")
     const decreaseBtn = productBox.querySelector(".decrease-amount-button")
-
+    
     let cartProductPrice = productAmount * products.productPrice
 
     productBox.setAttribute('style', 'display:flex')
@@ -49,17 +51,18 @@ function cartProduct(products ,productBox, productAmount){
     productBrand.innerHTML = products.productTilte 
     productName.innerHTML= products.productName 
     productPrice.innerHTML=cartProductPrice+" TL"
-    cartProductAmount.value=productAmount
-
+    cartProductAmount.innerHTML=productAmount
 
     deleteProduct.addEventListener("click", e=>{
         loadProcess.style.display = "flex";
         updateCart.style.display = "flex";
+        blackScreen.style.display="block"
         document.body.style.overflow = "hidden"
         setTimeout(()=> {
             loadProcess.removeAttribute("style");
             updateCart.removeAttribute("style");
-            document.body.style.overflow = ""        
+            document.body.style.overflow = "" 
+            blackScreen.style.display=""
             },3000);
         const user = userList.find(item => item.userMail == activeUser)
         const index = user.userCart.findIndex(item => item.productId == products.productId)
@@ -71,13 +74,15 @@ function cartProduct(products ,productBox, productAmount){
             confirmCart.setAttribute("style", "display:none")
         }
         calculateTotalPrice();
+        findCartCount()
        
     })
     increaseBtn.addEventListener("click", e=>{
         loadProcess.setAttribute("style","display:flex")
         updateCart.setAttribute("style", "display:flex")
         document.body.style.overflow = "hidden"
-        setTimeout(()=> {loadProcess.removeAttribute("style"),updateCart.removeAttribute("style"),document.body.style.overflow = ""}, 3000);
+        blackScreen.style.display="block"
+        setTimeout(()=> {loadProcess.removeAttribute("style"),updateCart.removeAttribute("style"),document.body.style.overflow = "",blackScreen.style.display=""}, 3000);
         decreaseBtn.removeAttribute("disabled")
         decreaseBtn.removeAttribute("style")
 
@@ -85,7 +90,7 @@ function cartProduct(products ,productBox, productAmount){
         let countProduct = user.userCart.findIndex(item => item.productId == products.productId)
         user.userCart[countProduct].productAmount = user.userCart[countProduct].productAmount +1 
         localStorage.setItem("userList", JSON.stringify(userList))
-        cartProductAmount.value=user.userCart[countProduct].productAmount
+        cartProductAmount.innerHTML=user.userCart[countProduct].productAmount
         cartProductPrice = user.userCart[countProduct].productAmount * products.productPrice
         productPrice.innerHTML=cartProductPrice+" TL"
         if(user.userCart[countProduct].productAmount == 10){
@@ -93,13 +98,16 @@ function cartProduct(products ,productBox, productAmount){
             increaseBtn.setAttribute("style","color:#999")
         }
         calculateTotalPrice();
+        findCartCount()
     })
 
     decreaseBtn.addEventListener("click", e=>{
         loadProcess.setAttribute("style","display:flex; background-color:#fff")
         updateCart.setAttribute("style", "display:flex")
+        blackScreen.style.display="block"
         document.body.style.overflow = "hidden"
-        setTimeout(()=> {loadProcess.removeAttribute("style"),updateCart.removeAttribute("style"),document.body.style.overflow = ""}, 3000);
+
+        setTimeout(()=> {loadProcess.removeAttribute("style"),updateCart.removeAttribute("style"),document.body.style.overflow = "",blackScreen.style.display=""}, 3000);
         increaseBtn.removeAttribute("disabled")
         increaseBtn.removeAttribute("style")
 
@@ -107,7 +115,7 @@ function cartProduct(products ,productBox, productAmount){
         let countProduct = user.userCart.findIndex(item => item.productId == products.productId)
         user.userCart[countProduct].productAmount = user.userCart[countProduct].productAmount  - 1 
         localStorage.setItem("userList", JSON.stringify(userList))
-        cartProductAmount.value=user.userCart[countProduct].productAmount
+        cartProductAmount.innerHTML=user.userCart[countProduct].productAmount
         cartProductPrice = user.userCart[countProduct].productAmount * products.productPrice
         productPrice.innerHTML=cartProductPrice+" TL"
         if(user.userCart[countProduct].productAmount == 1){
@@ -115,7 +123,8 @@ function cartProduct(products ,productBox, productAmount){
             decreaseBtn.setAttribute("style","color:#999")
         }
         calculateTotalPrice();
-    })  
+        findCartCount()
+    })
 }
 function favoritesProduct(products ,productBox){
     const productId = productBox.querySelector(".add-carts-button")
@@ -135,17 +144,28 @@ function favoritesProduct(products ,productBox){
     
     deleteProduct.addEventListener("click", function(e) {
             const user = userList.find(item => item.userMail == activeUser)
-                const index = user.userFavorites.findIndex(item => item == products.productId)
-                user.userFavorites.splice(index,1)
-                localStorage.setItem("userList", JSON.stringify(userList))
-                productBox.remove()
-                if(user.userFavorites.length== 0){
-                    warningBox.setAttribute("style", "display:flex")
-                }
+            const index = user.userFavorites.findIndex(item => item == products.productId)
+            user.userFavorites.splice(index,1)
+            localStorage.setItem("userList", JSON.stringify(userList))
+            productBox.remove()
+            if(user.userFavorites.length== 0){
+                warningBox.setAttribute("style", "display:flex")
+            }
     })
 }
+function findCartCount(){
+    const cartProductAmount = document.querySelectorAll(".amount")
 
+    let totalProductAmount = 0
+    for(let i = 0 ; i < cartProductAmount.length ; i ++){
+        if(!cartProductAmount[i].textContent){
+            continue
+        }
+        totalProductAmount += parseInt(cartProductAmount[i].textContent)
+    }
+    cartCount.innerHTML="("+ totalProductAmount+ " Ürün) "
 
+}  
 function calculateTotalPrice(){
     let cargoPrice = 0
     let liList = confirmList.querySelectorAll("li")
@@ -175,6 +195,7 @@ function calculateTotalPrice(){
     }
     confirmTotal.innerHTML = totalPrice + cargoPrice + " TL"
 }
+  
 startShopping.addEventListener("click", e=>{
     if(activeUser.length == 0){
         window.location.href="./login.html"
@@ -184,6 +205,7 @@ startShopping.addEventListener("click", e=>{
         window.location.href="./index.html"
     }
 })
+
 
 function loadPage(){
     const user = userList.find(item => item.userMail == activeUser)
@@ -206,13 +228,21 @@ function loadPage(){
             });
             user.userFavorites.forEach(userFavorite=>{
                 const matchProduct = productsAll.filter(product => product.productId == userFavorite)
-                matchProduct.forEach(item => {
-                    let productBox = favoritesProductBox.cloneNode(true)                      
-                    favoritesProduct(item, productBox)
-                    favoritesProductContainer.append(productBox)
-                })     
+                const isUserCart = user.userCart.find(isProduct => isProduct.productId == userFavorite)
+                if(isUserCart){
+                    return-1   
+                }else{
+                    matchProduct.forEach(item => {
+                        let productBox = favoritesProductBox.cloneNode(true)                      
+                        favoritesProduct(item, productBox)
+                        favoritesProductContainer.append(productBox)
+                        
+                    }) 
+                }
          })
             calculateTotalPrice()
+            findCartCount()
+
         }
         productContainer.setAttribute('style', 'display:none')
         favoritesProductBox.setAttribute("style", "display:none")
