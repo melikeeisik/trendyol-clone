@@ -30,6 +30,7 @@ let userList = JSON.parse(localStorage.getItem("userList")) || []
 let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
 
 function cartProduct(products ,productBox, productAmount){
+    console.log("calisti")
     const cargoFree = productBox.querySelector(".cargo-free")
     const productId = productBox.querySelector(".product-part")
     const productImg = productBox.querySelector(".product-img img")
@@ -69,6 +70,9 @@ function cartProduct(products ,productBox, productAmount){
         user.userCart.splice(index,1)
         localStorage.setItem("userList", JSON.stringify(userList))
         productBox.remove()
+        let favoritesBox = favoritesProductBox.cloneNode(true)                      
+        favoritesProduct(products, favoritesBox)
+        favoritesProductContainer.append(favoritesBox)
         if(user.userCart.length== 0){
             warningBox.setAttribute("style", "display:flex")
             confirmCart.setAttribute("style", "display:none")
@@ -127,6 +131,7 @@ function cartProduct(products ,productBox, productAmount){
     })
 }
 function favoritesProduct(products ,productBox){
+    const user = userList.find(item => item.userMail == activeUser)
     const productId = productBox.querySelector(".add-carts-button")
     const productImg = productBox.querySelector(".my-favorites-img img")
     const productBrand = productBox.querySelector(".my-favorites-brands")
@@ -151,6 +156,27 @@ function favoritesProduct(products ,productBox){
             if(user.userFavorites.length== 0){
                 warningBox.setAttribute("style", "display:flex")
             }
+    })
+    const addCartBtn = productBox.querySelector(".add-carts-button")
+    addCartBtn.addEventListener("click" , e=>{
+        loadProcess.setAttribute("style","display:flex; background-color:#fff")
+        updateCart.setAttribute("style", "display:flex")
+        blackScreen.style.display="block"
+        document.body.style.overflow = "hidden"
+        setTimeout(()=> {loadProcess.removeAttribute("style"),updateCart.removeAttribute("style"),document.body.style.overflow = "",blackScreen.style.display=""}, 3000);
+        
+        const productId= e.target.id 
+        const isProduct = productsAll.find(item => item.productId == productId)
+        const productAmount = 1
+        const productAdd = {
+            productId : isProduct.productId,
+            productAmount : productAmount 
+        }
+        user.userCart.push(productAdd)
+        localStorage.setItem("userList", JSON.stringify(userList))
+        let productBox = productContainer.cloneNode(true)                      
+        cartProduct(isProduct, productBox, productAmount)
+        myCartProducts.append(productBox)
     })
 }
 function findCartCount(){
