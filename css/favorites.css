@@ -483,7 +483,11 @@ option:checked{
     border: 1px solid rgb(255,165,0);
     color:rgb(255,165,0); 
     border-radius: 5px;
-    padding: 6.5px 30px;
+    width: 130px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: all 100ms ease-in-out;
 }
 .add-cart-button:hover{
@@ -491,6 +495,27 @@ option:checked{
     color: #fff;
     cursor: pointer;
 }
+
+.loader {
+    border: 3px solid #fff;
+    border-radius: 50%;
+    border-top: 3px solid grey;
+    width: 12px;
+    height: 12px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 .end-of-the-page-line{
     border-top: 1px solid #e8e8e8;
     width: 100%;
@@ -664,6 +689,7 @@ option:checked{
     position: absolute;
     height: 16px;
     width: 16px;
+    top:-0.5px;
     right: -17px;
     background-color: rgb(255, 165, 0);
     margin-top: 5px;

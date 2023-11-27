@@ -9,18 +9,38 @@ const accountContainer =document.getElementById("account-container")
 const userContainer = document.querySelector(".user-container")
 const userMailBox= document.querySelector(".user-mail-box")
 const liText = document.getElementById("li-text")
+const countCart = document.querySelector(".count") 
 let userList = JSON.parse(localStorage.getItem("userList")) || []
 let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
 
-addCart.addEventListener("click", e=>{
-    if(activeUser.length == 0){
-        window.location.href="./login.html"
+function control(){
+  const user = userList.find(item => item.userMail == activeUser)
+  if(user){
+    const match = user.userCart.find(item => item.productId == bodyId)
+    if(match){
+      addCart.setAttribute("style", "background-color:#0bc15c;color:#fff;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 600;font-size: 18px;letter-spacing: 0.8px")
+      addCart.textContent="Sepete Eklendi"
     }else{
-        addCart.setAttribute("style", "background-color:#0bc15c;color:#fff;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 600;font-size: 18px;letter-spacing: 0.8px")
-        changeText(addCartText, "Sepete Eklendi")
+      addCart.addEventListener("click", e=>{
+        if(activeUser.length == 0){
+            window.location.href="./login.html"
+          }else{
+            addCart.setAttribute("style", "background-color:#0bc15c;color:#fff;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 600;font-size: 18px;letter-spacing: 0.8px")
+            changeText(addCartText, "Sepete Eklendi")
+            const productAmount = 1
+            const productAdd = {
+              productId : bodyId,
+              productAmount : productAmount 
+            }
+            user.userCart.push(productAdd)
+            localStorage.setItem("userList", JSON.stringify(userList))
+          }
+          cartCount()
+      }) 
     }
-})
-
+  
+  }
+}
 addFavorites.addEventListener("click", e=>{
   let user = userList.find(item => item.userMail == activeUser)
   let favori = user.userFavorites.find(item => item == bodyId)
@@ -97,6 +117,23 @@ userBtn.addEventListener("mouseover", e=>{
       userMailBox.innerHTML=`${activeUser}`    
   }
 })
+function cartCount(){
+  let user = userList.find(item => item.userMail == activeUser)
+  console.log(user.userCart)
+  if(user.userCart.length == 0){
+      countCart.removeAttribute("style")
+      return -1
+  }else{
+      let totalCount = 0
+      for(let i = 0; i < user.userCart.length ; i++){
+          totalCount += user.userCart[i].productAmount
+      }
+      console.log(totalCount)
+      countCart.setAttribute("style","display:flex")
+      countCart.innerHTML=`${totalCount}`
+
+  }
+}
 
 userBtn.addEventListener('mouseout', () => {
   userContainer.style.display="none"
@@ -111,7 +148,9 @@ function loadPage() {
       addFavorites.querySelector("i").classList.add("fa-solid","fa-heart")
       addFavorites.querySelector("i").setAttribute("style","color:#ffa500;")
     }
+    control()
+    cartCount()
   }
 }
-console.log("efw",bodyId)
+
 window.addEventListener("load", loadPage)

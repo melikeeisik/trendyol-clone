@@ -862,6 +862,7 @@ img.rounded-corners {
     position: absolute;
     height: 16px;
     width: 16px;
+    top: -0.5px;
     right: -17px;
     background-color: rgb(255, 165, 0);
     margin-top: 5px;

@@ -154,17 +154,21 @@ function addFavorites(productId){
 }
 function cartCount(){
     let user = userList.find(item => item.userMail == activeUser)
-    console.log(user.cartAmount)
-    if(user){
-        if(!user.cartAmount){
-            countCart.removeAttribute("style")
-            return -1
-        }else{
-            countCart.setAttribute("style","display:flex")
-            countCart.innerHTML=`${user.cartAmount}`
+    console.log(user.userCart)
+    if(user.userCart.length == 0){
+        countCart.removeAttribute("style")
+        return -1
+    }else{
+        let totalCount = 0
+        for(let i = 0; i < user.userCart.length ; i++){
+            totalCount += user.userCart[i].productAmount
         }
+        console.log(totalCount)
+        countCart.setAttribute("style","display:flex")
+        countCart.innerHTML=`${totalCount}`
     }
 }
+
 addFavoritesBtn.forEach(item=>
     item.addEventListener("click", e=>{
         e.preventDefault()

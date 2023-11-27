@@ -12,7 +12,7 @@ const userBtn = document.getElementById("user-button")
 const userContainer = document.querySelector(".user-container")
 const userMailBox= document.querySelector(".user-mail-box")
 const cartBtn= document.getElementById("cart-button")
-
+const btnText = document.querySelector(".btn-text")
 let productsAll = JSON.parse(localStorage.getItem("products")) || [];
 let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
 const userList = JSON.parse(localStorage.getItem("userList")) || []
@@ -107,16 +107,22 @@ function removeClonesDiv(){
 
 function addCart(){
     const user = userList.find(item => item.userMail == activeUser)
-    if(user){
+    if(user){ 
         const cloneContainer = document.querySelectorAll(".product-container")
         cloneContainer.forEach(item =>{
             const addCartBtn = item.querySelector(".add-cart-button")
             addCartBtn.addEventListener("click", e=>{
-                const productId= e.target.closest(".buttons-container").id    
+                addCartBtn.innerHTML=""
+                const div = document.createElement("div")
+                div.classList.add("loader")
+                addCartBtn.appendChild(div)
+                addCartBtn.setAttribute("style","background-color : #31c458; border: 1px solid #31c458")
+                setTimeout(() => {div.remove(),addCartBtn.innerHTML="Sepete Eklendi", addCartBtn.setAttribute("style","color:#fff;background-color : #31c458; border: 1px solid #31c458") },1000)
+                setTimeout(() => {addCartBtn.innerHTML="Sepete Ekle", addCartBtn.setAttribute("style","color:rgb(255,165,0);background-color : #fff; border: 1px solid rgb(255,165,0)") }, 3000)
+                const productId= addCartBtn.closest(".buttons-container").id    
                 const isProduct = user.userCart.find(item => item.productId == productId)
                 if(isProduct){
                     const countProduct = user.userCart.findIndex(item => item.productId == productId)
-                    console.log(user.userCart[countProduct])
                     user.userCart[countProduct].productAmount = user.userCart[countProduct].productAmount +1 
                     localStorage.setItem("userList", JSON.stringify(userList))
                 }else{
@@ -129,23 +135,28 @@ function addCart(){
                     localStorage.setItem("userList", JSON.stringify(userList))
 
                 }
+                cartCount()  
             })
-        })    
+        }) 
     }
 }
 function cartCount(){
+    console.log("cagirildi")
     let user = userList.find(item => item.userMail == activeUser)
-    console.log(user.cartAmount)
-    if(user){
-        if(!user.cartAmount){
-            countCart.removeAttribute("style")
-            return -1
-        }else{
-            countCart.setAttribute("style","display:flex")
-            countCart.innerHTML=`${user.cartAmount}`
+    if(user.userCart.length == 0){
+        countCart.removeAttribute("style")
+        return -1
+    }else{
+        let totalCount = 0
+        for(let i = 0; i < user.userCart.length ; i++){
+            totalCount += user.userCart[i].productAmount
         }
+        console.log(totalCount)
+        countCart.setAttribute("style","display:flex")
+        countCart.innerHTML=`${totalCount}`
     }
 }
+
 
 selectPrice.addEventListener("change", e=>{
     const user = userList.find(item => item.userMail == activeUser)
