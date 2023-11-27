@@ -79,7 +79,6 @@ function cartProduct(products ,productBox, productAmount){
         }
         calculateTotalPrice();
         findCartCount()
-       
     })
     increaseBtn.addEventListener("click", e=>{
         loadProcess.setAttribute("style","display:flex")
@@ -180,7 +179,9 @@ function favoritesProduct(products ,productBox){
     })
 }
 function findCartCount(){
-    const cartProductAmount = document.querySelectorAll(".amount")
+    const user = userList.find(item => item.userMail == activeUser)
+    if(user){
+        const cartProductAmount = document.querySelectorAll(".amount")
 
     let totalProductAmount = 0
     for(let i = 0 ; i < cartProductAmount.length ; i ++){
@@ -190,7 +191,9 @@ function findCartCount(){
         totalProductAmount += parseInt(cartProductAmount[i].textContent)
     }
     cartCount.innerHTML="("+ totalProductAmount+ " Ürün) "
-
+    user.cartAmount = totalProductAmount
+    localStorage.setItem("userList",JSON.stringify(userList))
+    }
 }  
 function calculateTotalPrice(){
     let cargoPrice = 0

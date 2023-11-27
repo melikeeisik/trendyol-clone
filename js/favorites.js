@@ -7,6 +7,7 @@ const productPrice = document.querySelector(".product-price")
 const productId = document.querySelector(".buttons-container")
 const warningBox = document.querySelector(".warning-box")
 const selectPrice = document.getElementById("select-price")
+const countCart = document.querySelector(".count") 
 
 
 let productsAll = JSON.parse(localStorage.getItem("products")) || [];
@@ -129,6 +130,19 @@ function addCart(){
         })    
     }
 }
+function cartCount(){
+    let user = userList.find(item => item.userMail == activeUser)
+    console.log(user.cartAmount)
+    if(user){
+        if(!user.cartAmount){
+            countCart.removeAttribute("style")
+            return -1
+        }else{
+            countCart.setAttribute("style","display:flex")
+            countCart.innerHTML=`${user.cartAmount}`
+        }
+    }
+}
 
 selectPrice.addEventListener("change", e=>{
     const user = userList.find(item => item.userMail == activeUser)
@@ -183,6 +197,8 @@ function loadPage(){
          addCart()
          productContainer.setAttribute('style', 'display:none')
         }
-}}
+        cartCount()
+    }
+}
    
 window.addEventListener("load" ,loadPage)

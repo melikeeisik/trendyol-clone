@@ -653,3 +653,23 @@ option:checked{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: gray;
 }
+#cart-button{
+    position: relative;
+}
+
+.count{
+    display: none;
+    justify-content: center;
+    align-self: center;
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    right: -17px;
+    background-color: rgb(255, 165, 0);
+    margin-top: 5px;
+    margin-left: 2px;
+    border-radius: 90%;
+    color: #fff;
+    font-size: 11px;
+    
+}

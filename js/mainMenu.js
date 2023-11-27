@@ -15,14 +15,13 @@ const markaKonum = document.querySelectorAll(".konumlama")
 const addFavoritesBtn = document.querySelectorAll(".product-icon-contanier ")
 const iTags = document.querySelectorAll(".product-icon-contanier i ")
 const liText = document.getElementById("li-text")
-
+const countCart = document.querySelector(".count") 
 
 
 let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
 const userList = JSON.parse(localStorage.getItem("userList")) || []
 
 
-console.log(activeUser)
 let toggle=false;
 
 const toggleMenu = () => {
@@ -52,7 +51,6 @@ favoritesBtn.addEventListener("click", e=>{
         window.location.href="./login.html"
        
     }else{
-        console.log("kullanici var")
         window.location.href="./favorites.html"
     }
 })
@@ -72,7 +70,6 @@ userBtn.addEventListener("mouseover", e=>{
     if(activeUser.length == 0){
         userContainer.style.display="none"
     }else{
-        console.log("kullanici var")
         accountContainer.style.display="none"
         userContainer.style.display="flex"
         userMailBox.innerHTML=`${activeUser}`    
@@ -102,7 +99,6 @@ arrowRight.addEventListener("click", e=>{
 })
 
 markalar.addEventListener("scroll", (e) => {
-    console.log("scroll oldu ", e.target.scrollLeft);
     if (e.target.scrollLeft >= 850) {
       arrowRight.style.display="none"
     } else if (e.target.scrollLeft == 0) {
@@ -116,7 +112,6 @@ markalar.addEventListener("scroll", (e) => {
 
 let count =3
 imgCount(count);
-console.log(markaContainer.scrollWidth,markaContainer.clientWidth)
 function imgCount (count) {
     markaKonum.forEach(e=>{
         if(count ==3){
@@ -142,10 +137,8 @@ function imgCount (count) {
 
 function addFavorites(productId){
     let user = userList.find(item => item.userMail == activeUser)
-    console.log(user)
     if(user){
         const favorites = user.userFavorites.find(item => item == productId)
-        console.log(favorites)
         if(favorites){
             const index = user.userFavorites.findIndex(item => item == productId)
             user.userFavorites.splice(index,1)
@@ -157,6 +150,19 @@ function addFavorites(productId){
             return true
         }
         
+    }
+}
+function cartCount(){
+    let user = userList.find(item => item.userMail == activeUser)
+    console.log(user.cartAmount)
+    if(user){
+        if(!user.cartAmount){
+            countCart.removeAttribute("style")
+            return -1
+        }else{
+            countCart.setAttribute("style","display:flex")
+            countCart.innerHTML=`${user.cartAmount}`
+        }
     }
 }
 addFavoritesBtn.forEach(item=>
@@ -185,11 +191,11 @@ function loadPage(){
                     iTag.classList.remove("fa-regular","fa-heart")
                     iTag.classList.add("fa-solid", "fa-heart")
                     iTag.setAttribute("style", "color:#ffa500")
-                    console.log("VAR ", fav)
-                }})
                 }
-            )
+            })
+        })
+        cartCount();
     }
            
-    }
+}
 window.addEventListener("load", loadPage)
