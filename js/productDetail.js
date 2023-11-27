@@ -2,7 +2,13 @@ const bodyId = document.body.id
 const addCart= document.getElementById("add-cart")
 const addFavorites=document.getElementById("add-favorites")
 const addCartText = document.getElementById("add-cart-text")
-
+const favoritesBtn = document.getElementById("favorites-button")
+const cartBtn = document.getElementById("cart-button")
+const userBtn = document.getElementById("user-button")
+const accountContainer =document.getElementById("account-container")
+const userContainer = document.querySelector(".user-container")
+const userMailBox= document.querySelector(".user-mail-box")
+const liText = document.getElementById("li-text")
 let userList = JSON.parse(localStorage.getItem("userList")) || []
 let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
 
@@ -62,14 +68,49 @@ function changeText(item, newText){
       });
       };
 }
+favoritesBtn.addEventListener("click", e=>{
+  if(activeUser.length == 0){
+      window.location.href="./login.html"
+     
+  }else{
+      window.location.href="./favorites.html"
+  }
+})
 
+cartBtn.addEventListener("click", e=> {
+  if(activeUser.length == 0){
+      window.location.href="./login.html"
+     
+  }else{
+      console.log("kullanici var")
+      window.location.href="./cart.html"
+  }
+})
+
+
+userBtn.addEventListener("mouseover", e=>{
+  if(activeUser.length == 0){
+      userContainer.style.display="none"
+  }else{
+      accountContainer.style.display="none"
+      userContainer.style.display="flex"
+      userMailBox.innerHTML=`${activeUser}`    
+  }
+})
+
+userBtn.addEventListener('mouseout', () => {
+  userContainer.style.display="none"
+});
 function loadPage() {
   let user = userList.find(item => item.userMail == activeUser)
-  let favori = user.userFavorites.find(item => item == bodyId)
-  if(favori){
-    addFavorites.querySelector("i").classList.remove("fa-regular", "fa-heart")
-    addFavorites.querySelector("i").classList.add("fa-solid","fa-heart")
-    addFavorites.querySelector("i").setAttribute("style","color:#ffa500;")
+  if(user){
+    liText.textContent="Hesabım"
+    let favori = user.userFavorites.find(item => item == bodyId)
+    if(favori){
+      addFavorites.querySelector("i").classList.remove("fa-regular", "fa-heart")
+      addFavorites.querySelector("i").classList.add("fa-solid","fa-heart")
+      addFavorites.querySelector("i").setAttribute("style","color:#ffa500;")
+    }
   }
 }
 console.log("efw",bodyId)

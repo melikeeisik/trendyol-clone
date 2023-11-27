@@ -8,7 +8,10 @@ const productId = document.querySelector(".buttons-container")
 const warningBox = document.querySelector(".warning-box")
 const selectPrice = document.getElementById("select-price")
 const countCart = document.querySelector(".count") 
-
+const userBtn = document.getElementById("user-button")
+const userContainer = document.querySelector(".user-container")
+const userMailBox= document.querySelector(".user-mail-box")
+const cartBtn= document.getElementById("cart-button")
 
 let productsAll = JSON.parse(localStorage.getItem("products")) || [];
 let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
@@ -175,8 +178,25 @@ selectPrice.addEventListener("change", e=>{
             );
         }
     }         
-})      
+})   
 
+userBtn.addEventListener("mouseover", e=>{
+    if(activeUser.length == 0){
+        userContainer.style.display="none"
+    }else{
+        userContainer.style.display="flex"
+        userMailBox.innerHTML=`${activeUser}`    
+    }
+})   
+userBtn.addEventListener('mouseout', () => {
+    userContainer.style.display="none"
+});
+userBtn.addEventListener("click",e=>{
+    window.location.href="./index.html"
+})
+cartBtn.addEventListener("click" , e=>{
+    window.location.href="./cart.html"
+})
 function loadPage(){
     const user = userList.find(item => item.userMail == activeUser)
     if(user){

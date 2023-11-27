@@ -27,14 +27,27 @@
                     <object class= "search-icon-style" data="images/search.svg"> </object>
                 </label>
                 <ul class="categories">
-                    <label  class="categories-box">
+                    <label  class="categories-box"  id="user-button">
                         <svg width="20px" height="20px" class="nav-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        <li>Giriş Yap <div class="triangle"></div><div class="account-container"><a target="_self" href= "/login.html"><button class="login-button">Giriş Yap</button> </a><a target="_self" href="/signup.html"><button class="signup-button">Üye Ol</button></a></div></li>
+                        <li>Hesabım <div class="triangle"></div>
+                            <div class="user-container">
+                                <div class="user-mail-box">
+                                </div>
+                                <ul>
+                                    <li class="user-container-element"><i class="fa-solid fa-box"></i>Tüm Siparişlerim</li>
+                                    <li class="user-container-element"><i class="fa-regular fa-comments"></i>Değerlendirmelerim</li>
+                                    <li class="user-container-element"><i class="fa-regular fa-envelope"></i>Satıcı Mesajlarım</li>
+                                    <li class="user-container-element"><i class="fa-solid fa-tag  " ></i>İndirim Kupanlarım</li>
+                                    <li class="user-container-element"><i class="fa-regular fa-user"></i>Kullanıcı Bilgilerim</li>
+                                    <li class="user-container-element" id="log-out"><i class="fa-solid fa-door-open"></i>Çıkış Yap</li>
+                                </ul>
+                            </div>
+                        </li>
                     </label>
-                    <label class= "categories-box">
+                    <label class= "categories-box" id="favories-button">
                         <svg width="20px" height="20px" class="nav-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <rect width="24" height="24" fill="white"/>
                             <path d="M21 8.99998C21 12.7539 15.7156 17.9757 12.5857 20.5327C12.2416 20.8137 11.7516 20.8225 11.399 20.5523C8.26723 18.1523 3 13.1225 3 8.99998C3 2.00001 12 2.00002 12 8C12 2.00001 21 1.99999 21 8.99998Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>

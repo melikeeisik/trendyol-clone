@@ -25,6 +25,10 @@ const favoritesProductBox = document.querySelector(".my-favorites-box")
 const favoritesProductContainer = document.querySelector(".my-favorites-container")
 const cartCount = document.querySelector(".count")
 const blackScreen= document.querySelector(".black-screen")
+const userBtn = document.getElementById("user-button")
+const userContainer = document.querySelector(".user-container")
+const userMailBox= document.querySelector(".user-mail-box")
+const favBtn= document.getElementById("favories-button")
 let productsAll = JSON.parse(localStorage.getItem("productsAll")) || [];
 let userList = JSON.parse(localStorage.getItem("userList")) || []
 let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
@@ -234,7 +238,23 @@ startShopping.addEventListener("click", e=>{
         window.location.href="./index.html"
     }
 })
-
+userBtn.addEventListener("mouseover", e=>{
+    if(activeUser.length == 0){
+        userContainer.style.display="none"
+    }else{
+        userContainer.style.display="flex"
+        userMailBox.innerHTML=`${activeUser}`    
+    }
+})   
+userBtn.addEventListener('mouseout', () => {
+    userContainer.style.display="none"
+});
+userBtn.addEventListener("click",e=>{
+    window.location.href="./index.html"
+})
+favBtn.addEventListener("click" , e=>{
+    window.location.href="./favorites.html"
+})
 
 function loadPage(){
     const user = userList.find(item => item.userMail == activeUser)

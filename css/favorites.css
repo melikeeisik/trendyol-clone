@@ -673,3 +673,50 @@ option:checked{
     font-size: 11px;
     
 }
+.categories-box:hover .user-container{
+    display: flex;
+}
+.user-container{
+    background-color: #fff;
+    position: absolute;
+    left: -60px;
+    top:30px;
+    border: 1px solid #e8e8e8;
+    z-index: 1;
+    box-shadow: 5px 5px 10px gainsboro;
+    border-radius: 10px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+.user-mail-box{
+    color: rgb(255, 165, 0);
+    padding: 15px;
+    padding-bottom: 0px;
+    font-size: 14px
+}
+.user-container ul{
+    list-style: none;
+    line-height: 40px;
+    font-size: 13px;
+    font-weight: 400;
+    padding-left:0px ;
+    padding: 15px;
+    color: black;
+}
+.user-container-element{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.user-container-element:hover{
+    background-color: #fffaf6;
+    border-radius: 5px;
+}
+.user-container-element i{
+    font-size: 16px;
+    color: #4d4d4d;
+    margin-right: 15px;
+}
