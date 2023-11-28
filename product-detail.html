@@ -214,11 +214,24 @@
                     </ul>
                 </div>
                 <div class="product-detail">
-                    <div class="product-img">
-                        <div class="corporate-invoice"><i class="fa-solid fa-receipt fa-xs" style="color: #ffffff;"></i><span class="cargo-text">KURUMSAL FATURA</span></div>
-                        <div class="cargo-truck"> <i class="fa-solid fa-truck-fast fa-xs"></i> <span class="cargo-text">HIZLI TESLİMAT</span></div>
-                        <img id="myimage"class="product-img-size" src="https://cdn.dsmcdn.com/ty1010/product/media/images/prod/SPM/PIM/20231007/13/52e7389a-c903-33af-965b-7e94f743b7e0/1_org_zoom.jpg" />
-                        <div id="myresult" class="img-zoom-result"></div>
+                    <div class="product-images-container">
+                        <div class="product-img">
+                            <div class="corporate-invoice"><i class="fa-solid fa-receipt fa-xs" style="color: #ffffff;"></i><span class="cargo-text">KURUMSAL FATURA</span></div>
+                            <div class="cargo-truck"> <i class="fa-solid fa-truck-fast fa-xs"></i> <span class="cargo-text">HIZLI TESLİMAT</span></div>
+                            <img id="myimage"class="product-img-size" src="images/avon.webp" />
+                            <div id="myresult" class="img-zoom-result"></div>
+                        </div>
+                        <div class="other-product-pictures">
+                            <div class="other-picture" id="a">
+                                <img src="images/avon.webp">
+                            </div>
+                            <div class="other-picture" id="b">
+                                <img src="images/avon1.webp">
+                            </div>
+                            <div class="other-picture" id="c">
+                                <img src="images/avon2.webp">
+                            </div>
+                        </div>
                     </div>
                     <div class="product-info">
                         <div class="product-favorites">
@@ -1219,7 +1232,17 @@
             </div>
         </div>
         <script>
+            const id = document.querySelectorAll(".other-product-pictures img")
+            id.forEach(item => {
+            item.addEventListener("click", e => {
+                const myImage = document.getElementById("myimage")
+                myImage.src = item.src;
+                let result = document.getElementById("myresult");
+                result.style.backgroundImage = "url('" + myImage.src + "')";
+            });
+            });
             imageZoom("myimage", "myresult");
+
         </script>
         <script src="js/productDetail.js"></script>
 

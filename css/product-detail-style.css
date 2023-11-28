@@ -325,19 +325,40 @@ main {
     flex-direction: row;
     width: 100%;
 }
-.product-detail .product-img{
+.product-detail .product-images-container .product-img{
     width: 380px;
+    height: 570px;
     border: 1px solid #e8e8e8;
     border-radius: 10px;
     position: relative;
     background-color: #fff;
-    padding: 10px;
+
 }
 .product-img .product-img-size{
     width: 100%;
 }
 .product-img img {
-    border-radius: 2%
+    border-radius: 2%;
+    object-fit: contain;
+    width:   100%;
+}
+.other-product-pictures{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.other-picture{
+    width: 40px;
+    height: 60px;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.other-picture img{
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10%;
 }
 
 .img-zoom-lens {
@@ -378,9 +399,12 @@ main {
     z-index: 1;
     border-radius: 5px;
     padding-left: 5px;
+    left: 10px;
+    top: 10px;
 }
 .cargo-truck{
-    top:40px;
+    top:45px;
+    left: 10px;
     height: 25px;
     width: 70px;
     background-color: #31c458;

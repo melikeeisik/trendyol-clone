@@ -10,6 +10,7 @@ const userContainer = document.querySelector(".user-container")
 const userMailBox= document.querySelector(".user-mail-box")
 const liText = document.getElementById("li-text")
 const countCart = document.querySelector(".count") 
+
 let userList = JSON.parse(localStorage.getItem("userList")) || []
 let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
 

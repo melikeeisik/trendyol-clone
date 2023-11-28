@@ -403,6 +403,8 @@ option:checked{
 .product-detail-container{
     display: flex;
     flex-direction: column;
+    height: 180px;
+    justify-content: space-between;
 }
 .product-name{
     color: #666;
