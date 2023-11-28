@@ -13,11 +13,10 @@ const userContainer = document.querySelector(".user-container")
 const userMailBox= document.querySelector(".user-mail-box")
 const cartBtn= document.getElementById("cart-button")
 const btnText = document.querySelector(".btn-text")
-let productsAll = JSON.parse(localStorage.getItem("products")) || [];
+
+let productsAll = JSON.parse(localStorage.getItem("productsAll"));
 let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
 const userList = JSON.parse(localStorage.getItem("userList")) || []
-
-
 
 function favoritesProduct(products ,productBox){
     const productId = productBox.querySelector(".buttons-container")
