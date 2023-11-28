@@ -16,7 +16,7 @@ const addFavoritesBtn = document.querySelectorAll(".product-icon-contanier ")
 const iTags = document.querySelectorAll(".product-icon-contanier i ")
 const liText = document.getElementById("li-text")
 const countCart = document.querySelector(".count") 
-const deneme = document.getElementById("2")
+
 
 let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
 const userList = JSON.parse(localStorage.getItem("userList")) || []
@@ -168,9 +168,7 @@ function cartCount(){
         countCart.innerHTML=`${totalCount}`
     }
 }
-deneme.addEventListener("click", e=>{
-    deneme.style.backgroundColor = red
-})
+
 addFavoritesBtn.forEach(item=>
     item.addEventListener("click", e=>{
         e.preventDefault()
