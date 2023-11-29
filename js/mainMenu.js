@@ -16,7 +16,7 @@ const addFavoritesBtn = document.querySelectorAll(".product-icon-contanier ")
 const iTags = document.querySelectorAll(".product-icon-contanier i ")
 const liText = document.getElementById("li-text")
 const countCart = document.querySelector(".count") 
-
+const productBoxs = document.querySelectorAll(".product-box")
 
 let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
 const userList = JSON.parse(localStorage.getItem("userList")) || []
@@ -107,7 +107,7 @@ markalar.addEventListener("scroll", (e) => {
       arrowRight.style.display="flex"
       arrowLeft.style.display="flex"
     }
-  });
+});
 
 
 let count =3
@@ -154,7 +154,6 @@ function addFavorites(productId){
 }
 function cartCount(){
     let user = userList.find(item => item.userMail == activeUser)
-    console.log(user.userCart)
     if(user.userCart.length == 0){
         countCart.removeAttribute("style")
         return -1
@@ -163,12 +162,28 @@ function cartCount(){
         for(let i = 0; i < user.userCart.length ; i++){
             totalCount += user.userCart[i].productAmount
         }
-        console.log(totalCount)
         countCart.setAttribute("style","display:flex")
         countCart.innerHTML=`${totalCount}`
     }
 }
-
+function createUrl(id){
+    if (!id) {
+        console.log("url yok")
+    }else{
+        let url = new URL(window.location.href);
+        let path = url.pathname.split("/")
+        path.pop()
+        let newUrl = path.join("/")+"/product-detail.html?id=" + id;
+        window.location.href= newUrl;
+        console.log(newUrl)
+    }
+}
+productBoxs.forEach(item =>{
+    item.addEventListener("click", e=>{
+        createUrl(item.id)
+    })
+})
+  
 addFavoritesBtn.forEach(item=>
     item.addEventListener("click", e=>{
         e.preventDefault()

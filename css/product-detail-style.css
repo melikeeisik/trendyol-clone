@@ -464,7 +464,7 @@ main {
 .share-icon{
     display: none;
 }
-.product-info .product-name span{
+#brands{
     font-weight: 600;
 }
 .product-info .product-reputation{
@@ -474,6 +474,7 @@ main {
     width: 100%;
     height: 20px;
     margin-top: 20px;
+    margin-bottom: 20px;
    
 }
 .product-info .product-reputation .products-vote{

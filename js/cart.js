@@ -34,7 +34,6 @@ let userList = JSON.parse(localStorage.getItem("userList")) || []
 let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
 
 function cartProduct(products ,productBox, productAmount){
-    console.log("calisti")
     const cargoFree = productBox.querySelector(".cargo-free")
     const productId = productBox.querySelector(".product-part")
     const productImg = productBox.querySelector(".product-img img")
@@ -140,8 +139,8 @@ function favoritesProduct(products ,productBox){
     const productBrand = productBox.querySelector(".my-favorites-brands")
     const productName = productBox.querySelector(".my-favorites-name")
     const productPrice = productBox.querySelector(".my-favorites-price")
-    const deleteProduct = productBox.querySelector(".delete-or-add-button i")
-
+    const removeFav = productBox.querySelector("#heart")
+    const deleteProduct = productBox.querySelector("#trash")
     productBox.setAttribute('style', 'display:flex')
 
     productId.id = products.productId
@@ -150,16 +149,18 @@ function favoritesProduct(products ,productBox){
     productName.innerHTML= products.productName 
     productPrice.innerHTML=products.productPrice+" TL"
     
-    deleteProduct.addEventListener("click", function(e) {
+    removeFav.addEventListener("click", function(e) {
             const user = userList.find(item => item.userMail == activeUser)
             const index = user.userFavorites.findIndex(item => item == products.productId)
             user.userFavorites.splice(index,1)
             localStorage.setItem("userList", JSON.stringify(userList))
-            productBox.remove()
-            if(user.userFavorites.length== 0){
-                warningBox.setAttribute("style", "display:flex")
-            }
+            removeFav.classList.remove("fa-solid","fa-regular","fa-heart")
+            removeFav.classList.add("fa-regular","fa-heart")
+            removeFav.setAttribute("style", "color: #666")
     })
+    deleteProduct.addEventListener("click", function(e) {
+        productBox.remove()
+})
     const addCartBtn = productBox.querySelector(".add-carts-button")
     addCartBtn.addEventListener("click" , e=>{
         loadProcess.setAttribute("style","display:flex; background-color:#fff")
@@ -177,9 +178,10 @@ function favoritesProduct(products ,productBox){
         }
         user.userCart.push(productAdd)
         localStorage.setItem("userList", JSON.stringify(userList))
-        let productBox = productContainer.cloneNode(true)                      
-        cartProduct(isProduct, productBox, productAmount)
-        myCartProducts.append(productBox)
+        productBox.remove()
+        let favBox = productContainer.cloneNode(true)                      
+        cartProduct(isProduct, favBox, productAmount)
+        myCartProducts.append(favBox)
     })
 }
 function findCartCount(){
@@ -228,13 +230,12 @@ function calculateTotalPrice(){
     }
     confirmTotal.innerHTML = totalPrice + cargoPrice + " TL"
 }
-  
+
 startShopping.addEventListener("click", e=>{
     if(activeUser.length == 0){
         window.location.href="./login.html"
        
     }else{
-        console.log("kullanici var")
         window.location.href="./index.html"
     }
 })

@@ -13,6 +13,8 @@ const countCart = document.querySelector(".count")
 
 let userList = JSON.parse(localStorage.getItem("userList")) || []
 let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
+let productsAll = JSON.parse(localStorage.getItem("productsAll")) || [];
+
 
 function control(){
   const user = userList.find(item => item.userMail == activeUser)
@@ -135,11 +137,26 @@ function cartCount(){
 
   }
 }
+function showProductDetail(productId){
+  let product = productsAll.find(item => item.productId == productId)
+  console.log(product)
+  document.getElementById("myimage").src = product.productImg
+  document.getElementById('brands').textContent = product.productTilte;
+  document.getElementById('fullname').textContent = product.productName;
+  document.querySelector(".product-price").innerHTML = product.productPrice + " TL"
+}
 
 userBtn.addEventListener('mouseout', () => {
   userContainer.style.display="none"
 });
 function loadPage() {
+  let productId = window.location.href.split('?id=')[1] 
+  console.log(productId)
+  if (!productId) {
+    console.log("url yok")
+  }else{
+    showProductDetail(productId)
+  }
   let user = userList.find(item => item.userMail == activeUser)
   if(user){
     liText.textContent="Hesabım"

@@ -44,7 +44,6 @@ function loadFav(){
         },
     ]
     let productsAll = JSON.parse(localStorage.getItem("productsAll")) || []
-    console.log(productsAll)
     if(productsAll.length == 0){
         products.forEach(element =>{
             productsAll.push(element)
