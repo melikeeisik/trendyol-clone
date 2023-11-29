@@ -1,4 +1,4 @@
-const bodyId = document.body.id
+let bodyId = document.body.id
 const addCart= document.getElementById("add-cart")
 const addFavorites=document.getElementById("add-favorites")
 const addCartText = document.getElementById("add-cart-text")
@@ -46,6 +46,7 @@ function control(){
 }
 addFavorites.addEventListener("click", e=>{
   let user = userList.find(item => item.userMail == activeUser)
+  console.log(bodyId)
   let favori = user.userFavorites.find(item => item == bodyId)
   if(favori){
     const index = user.userFavorites.findIndex(item => item == bodyId)
@@ -122,7 +123,6 @@ userBtn.addEventListener("mouseover", e=>{
 })
 function cartCount(){
   let user = userList.find(item => item.userMail == activeUser)
-  console.log(user.userCart)
   if(user.userCart.length == 0){
       countCart.removeAttribute("style")
       return -1
@@ -131,7 +131,6 @@ function cartCount(){
       for(let i = 0; i < user.userCart.length ; i++){
           totalCount += user.userCart[i].productAmount
       }
-      console.log(totalCount)
       countCart.setAttribute("style","display:flex")
       countCart.innerHTML=`${totalCount}`
 
@@ -139,7 +138,7 @@ function cartCount(){
 }
 function showProductDetail(productId){
   let product = productsAll.find(item => item.productId == productId)
-  console.log(product)
+  bodyId = product.productId
   document.getElementById("myimage").src = product.productImg
   document.getElementById('brands').textContent = product.productTilte;
   document.getElementById('fullname').textContent = product.productName;
@@ -151,7 +150,6 @@ userBtn.addEventListener('mouseout', () => {
 });
 function loadPage() {
   let productId = window.location.href.split('?id=')[1] 
-  console.log(productId)
   if (!productId) {
     console.log("url yok")
   }else{
