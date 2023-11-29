@@ -5,63 +5,6 @@
         <title>Ürün Detay Sayfası</title>
         <link rel = "stylesheet" href = "css/product-detail-style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script>
-            function imageZoom(imgID, resultID) {
-              var img, lens, result, cx, cy;
-              img = document.getElementById(imgID);
-              result = document.getElementById(resultID);
-              /*create lens:*/
-              lens = document.createElement("div");
-              lens.setAttribute("class", "img-zoom-lens");
-              /*insert lens:*/
-              img.parentElement.insertBefore(lens, img);
-              /*calculate the ratio between result DIV and lens:*/
-              cx = 2.51;
-              cy = 3.285;
-              /*set background properties for the result DIV:*/
-              result.style.backgroundImage = "url('" + img.src + "')";
-              result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
-              /*execute a function when someone moves the cursor over the image, or the lens:*/
-              lens.addEventListener("mousemove", moveLens);
-              img.addEventListener("mousemove", moveLens);
-              /*and also for touch screens:*/
-              lens.addEventListener("touchmove", moveLens);
-              img.addEventListener("touchmove", moveLens);
-              function moveLens(e) {
-                var pos, x, y;
-                /*prevent any other actions that may occur when moving over the image:*/
-                e.preventDefault();
-                /*get the cursor's x and y positions:*/
-                pos = getCursorPos(e);
-                /*calculate the position of the lens:*/
-                x = pos.x - (lens.offsetWidth / 2);
-                y = pos.y - (lens.offsetHeight / 2);
-                /*prevent the lens from being positioned outside the image:*/
-                if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
-                if (x < 0) {x = 0;}
-                if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
-                if (y < 0) {y = 0;}
-                /*set the position of the lens:*/
-                lens.style.left = x + "px";
-                lens.style.top = y + "px";
-                /*display what the lens "sees":*/
-                result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
-              }
-              function getCursorPos(e) {
-                var a, x = 0, y = 0;
-                e = e || window.event;
-                /*get the x and y positions of the image:*/
-                a = img.getBoundingClientRect();
-                /*calculate the cursor's x and y coordinates, relative to the image:*/
-                x = e.pageX - a.left;
-                y = e.pageY - a.top;
-                /*consider any page scrolling:*/
-                x = x - window.pageXOffset;
-                y = y - window.pageYOffset;
-                return {x : x, y : y};
-              }
-            }
-        </script>
     </head>
     <body id="">
         <div class="header">
@@ -218,19 +161,11 @@
                         <div class="product-img">
                             <div class="corporate-invoice"><i class="fa-solid fa-receipt fa-xs" style="color: #ffffff;"></i><span class="cargo-text">KURUMSAL FATURA</span></div>
                             <div class="cargo-truck"> <i class="fa-solid fa-truck-fast fa-xs"></i> <span class="cargo-text">HIZLI TESLİMAT</span></div>
-                            <img id="myimage"class="product-img-size" src="./images/avon.webp" />
+                            <!--<img id="myimage"class="product-img-size" src="./images/avon.webp" />-->
                             <div id="myresult" class="img-zoom-result"></div>
                         </div>
                         <div class="other-product-pictures">
-                            <div class="other-picture" id="a">
-                                <img src="./images/avon.webp">
-                            </div>
-                            <div class="other-picture" id="b">
-                                <img src="./images/avon1.webp">
-                            </div>
-                            <div class="other-picture" id="c">
-                                <img src="./images/avon2.webp">
-                            </div>
+                            
                         </div>
                     </div>
                     <div class="product-info">
@@ -1231,19 +1166,6 @@
                 </div>
             </div>
         </div>
-        <script>
-            const id = document.querySelectorAll(".other-product-pictures img")
-            id.forEach(item => {
-            item.addEventListener("click", e => {
-                const myImage = document.getElementById("myimage")
-                myImage.src = item.src;
-                let result = document.getElementById("myresult");
-                result.style.backgroundImage = "url('" + myImage.src + "')";
-            });
-            });
-            imageZoom("myimage", "myresult");
-
-        </script>
         <script src="./js/productDetail.js"></script>
         <script src="./js/loadFavorites.js"></script>
 

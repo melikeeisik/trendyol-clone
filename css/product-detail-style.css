@@ -355,7 +355,7 @@ main {
     border-radius: 5px;
     margin-right: 10px;
 }
-.other-picture img{
+.other-picture-img{
     height: 100%;
     object-fit: contain;
     border-radius: 10%;
