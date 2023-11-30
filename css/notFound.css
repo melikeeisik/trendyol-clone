@@ -2,10 +2,18 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
 }
+html{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .numbers{
     font-size: 120px;
     color: rgb(255,145,0);
     margin-block-end: 0px;
+    margin-block-start: 0px;
 }
 .page-text{
     font-size: 22px;
