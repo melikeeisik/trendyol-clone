@@ -229,13 +229,19 @@ function showProductBox(products, productBox){
         } )
     )
     iTags.forEach(iTag => {
-        user.userFavorites.forEach(fav =>{ 
-            if(fav == iTag.closest(".product-box").id){
-                iTag.classList.remove("fa-regular","fa-heart")
-                iTag.classList.add("fa-solid", "fa-heart")
-                iTag.setAttribute("style", "color:#ffa500")
-            }
-        })
+        if(user){
+            user.userFavorites.forEach(fav =>{ 
+                if(fav == iTag.closest(".product-box").id){
+                    iTag.classList.remove("fa-regular","fa-heart")
+                    iTag.classList.add("fa-solid", "fa-heart")
+                    iTag.setAttribute("style", "color:#ffa500")
+                }
+            })
+        }else{
+            iTag.addEventListener("click",e =>{
+                window.location.href="./login.html"
+            })
+        }
     })  
 }
 productGrid.addEventListener("scroll", (e) => {
