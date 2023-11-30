@@ -168,7 +168,7 @@ function cartCount(){
 }
 function createUrl(id){
     if (!id) {
-        console.log("url yok")
+        window.location.href="./notFound.html"
     }else{
         let url = new URL(window.location.href);
         let path = url.pathname.split("/")
@@ -181,7 +181,6 @@ function createUrl(id){
 productBoxsImg.forEach(item =>{
     item.addEventListener("click", e=>{
         createUrl(e.target.closest(".product-box").id)
-        //createUrl(item.id)
     })
 })
 productBoxsDetail.forEach(item => {

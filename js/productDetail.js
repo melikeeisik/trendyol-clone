@@ -249,8 +249,10 @@ userBtn.addEventListener('mouseout', () => {
 });
 function loadPage() {
   let productId = window.location.href.split('?id=')[1] 
-  if (!productId) {
-    console.log("url yok")
+  let isProductId= productsAll.find(item =>item.productId == productId)
+  console.log(productId)
+  if (!isProductId) {
+    window.location.href="./notFound.html"
   }else{
     showProductDetail(productId)
   }
@@ -264,9 +266,9 @@ function loadPage() {
       addFavorites.querySelector("i").setAttribute("style","color:#ffa500;")
     }
     control()
-    otherPicture()
     cartCount()
   }
+  otherPicture()
 }
 
 window.addEventListener("load", loadPage)

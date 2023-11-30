@@ -1,0 +1,28 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+.numbers{
+    font-size: 120px;
+    color: rgb(255,145,0);
+    margin-block-end: 0px;
+}
+.page-text{
+    font-size: 22px;
+    color: #333;
+}
+.back-button{
+    padding: 15px 50px;
+    background-color: #fff;
+    color: rgb(255,145,0);;
+    border: 2px solid rgb(255,145,0);;
+    font-weight: 500;
+    font-size: 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.back-button:hover{
+    cursor: pointer;
+    background-color: rgb(255,145,0);
+    color: #fff;
+}
