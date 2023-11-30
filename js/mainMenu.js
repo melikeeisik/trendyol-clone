@@ -16,8 +16,8 @@ const addFavoritesBtn = document.querySelectorAll(".product-icon-contanier ")
 const iTags = document.querySelectorAll(".product-icon-contanier i ")
 const liText = document.getElementById("li-text")
 const countCart = document.querySelector(".count") 
-const productBoxs = document.querySelectorAll(".product-box")
-
+const productBoxsImg = document.querySelectorAll(".product-box img")
+const productBoxsDetail = document.querySelectorAll(".product-container")
 let activeUser = JSON.parse(sessionStorage.getItem("currentloggedin")) || []
 const userList = JSON.parse(localStorage.getItem("userList")) || []
 
@@ -178,12 +178,17 @@ function createUrl(id){
         console.log(newUrl)
     }
 }
-productBoxs.forEach(item =>{
+productBoxsImg.forEach(item =>{
     item.addEventListener("click", e=>{
-        createUrl(item.id)
+        createUrl(e.target.closest(".product-box").id)
+        //createUrl(item.id)
     })
 })
-  
+productBoxsDetail.forEach(item => {
+    item.addEventListener("click", e=>{
+        createUrl(e.target.closest(".product-box").id)
+    })
+})
 addFavoritesBtn.forEach(item=>
     item.addEventListener("click", e=>{
         e.preventDefault()
