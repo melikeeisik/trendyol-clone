@@ -447,6 +447,13 @@ img.rounded-corners {
     padding: 10px;
     text-decoration: none;
 }
+.brands-name{
+    font-weight: 600;
+    margin-right: 5px;
+}
+.full-name{
+    color:#333
+}
 
 .product-price{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
