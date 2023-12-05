@@ -17,7 +17,7 @@ Html, css, javascript teknolojilerini kullanarak geliştirmiş olduğum, sayfa t
 ## Video Linki
 https://youtu.be/dNadb9Vlhes
 
-## Ekran Resimleri
+## Ekran Görüntüleri
 
 ![web2](https://github.com/melikeeisik/trendyol-clone/assets/80756998/c650d9ea-c16c-4bc2-b9f7-4c46940d3ebb)
 ![web4](https://github.com/melikeeisik/trendyol-clone/assets/80756998/e858b542-68e5-4738-87db-6e2ac16e6ee2)
