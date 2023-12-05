@@ -1,18 +1,18 @@
 # Trendyol Clone
-Html, css, javascript teknolojilerini kullanarak geliştirmiş olduğum, sayfa tasarımlarını "Trendyol" alışveriş sitesinden aldığım bir e-alışveriş web sayfasıdır.
+Html, css, javascript teknolojileri kullanılarak geliştirilmiş bir clone projedir. Sayfaların tasarımları "Trendyol" sitesinden alınmıştır. 
 
 ## Web Sayfasının İçeriği
 - Kullanıcılar, kullanıcı girişi olmadan anasayfada ve ürünlerin detay sayfasında gezinebilir.
 - Kullanıcılar hesap oluşturabilir.
-- Hesabı var olan kullanıcılar hesabına giriş yapabilir.
-- Kullanıcılar giriş yapmaları takdirde ürünleri favorilerine ve sepetlerine ekleyebilir.
+- Daha önce kayıt olmuş kullanıcılar hesabına giriş yapabilir.
+- Kullanıcılar giriş yaparak ürünleri favorilerine ve sepetlerine ekleyebilir.
 - Kullanıcılar favoriler sayfasında ürünleri fiyatlarına göre filtreleyebilir.
 - Kullanıcılar favorilerinde ve sepetlerinde bulunan ürünleri kaldırabilir.
 - Sepete eklenen ürünlerin adedi arttırılabilir.
 - Sepette bulunan ürünlerin toplam fiyatı kullanıcılar için hesaplanır.
 - Kullanıcı mail ve şifreleri local storageye kaydedilir ve kontrolleri yapılır.
 - Ürünler, local storage kullanılarak parametrik olarak çekilir.
-- Anasayfa, giriş yapma ve hesap oluşturma sayfalarının responsive özellikleri geliştirilmiştir.
+- Anasayfa, giriş yapma ve hesap oluşturma sayfaları responsive olarak geliştirilmiştir.
 
 ## Video Linki
 https://youtu.be/dNadb9Vlhes
