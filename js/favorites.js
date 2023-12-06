@@ -25,7 +25,7 @@ function favoritesProduct(products ,productBox){
     const productName = productBox.querySelector(".product-full-name")
     const productPrice = productBox.querySelector(".product-price")
     const deleteProduct = productBox.querySelector(".delete-product-icon")
-
+    const addCart = productBox.querySelector(".add-cart-button")
     productBox.setAttribute('style', 'display:flex')
 
     productId.id = products.productId
@@ -44,6 +44,34 @@ function favoritesProduct(products ,productBox){
                     warningBox.setAttribute("style", "display:flex")
                 }
     })
+    addCart.addEventListener("click", e=>{
+        addCart.innerHTML=""
+        const div = document.createElement("div")
+        div.classList.add("loader")
+        addCart.appendChild(div)
+        addCart.setAttribute("style","background-color : #31c458; border: 1px solid #31c458")
+        setTimeout(() => {div.remove(),addCart.innerHTML="Sepete Eklendi", addCart.setAttribute("style","color:#fff;background-color : #31c458; border: 1px solid #31c458") },1000)
+        setTimeout(() => {addCart.innerHTML="Sepete Ekle", addCart.setAttribute("style","color:rgb(255,165,0);background-color : #fff; border: 1px solid rgb(255,165,0)") }, 3000)
+        const productId= addCart.closest(".buttons-container").id    
+        const isProduct = user.userCart.find(item => item.productId == productId)
+        if(isProduct){
+            const countProduct = user.userCart.findIndex(item => item.productId == productId)
+            user.userCart[countProduct].productAmount = user.userCart[countProduct].productAmount +1 
+            localStorage.setItem("userList", JSON.stringify(userList))
+        }else{
+            const productAmount = 1
+            const productAdd = {
+                productId : productId,
+                productAmount : productAmount 
+            }
+            user.userCart.push(productAdd)
+            localStorage.setItem("userList", JSON.stringify(userList))
+
+        }
+        cartCount()  
+    })
+
+    
 }
 function removeClonesDiv(){
     const cloneContainer = document.querySelectorAll('.product-container');
