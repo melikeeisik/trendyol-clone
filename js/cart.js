@@ -182,6 +182,7 @@ function favoritesProduct(products ,productBox){
         let favBox = productContainer.cloneNode(true)                      
         cartProduct(isProduct, favBox, productAmount)
         myCartProducts.append(favBox)
+        calculateTotalPrice()
     })
 }
 function findCartCount(){
@@ -202,14 +203,20 @@ function findCartCount(){
     }
 }  
 function calculateTotalPrice(){
+    const user = userList.find(item => item.userMail == activeUser)
+    
+    let totalPrice = 0;
     let cargoPrice = 0
     let liList = confirmList.querySelectorAll("li")
-    const productPrice = document.querySelectorAll(".product-price");
-
-    let totalPrice = 0;
-    productPrice.forEach(item => {
-        totalPrice += parseFloat(item.textContent.split(" "));
-    });
+    
+    user.userCart.forEach(userCart =>{
+        const matchProduct = productsAll.find(product => product.productId == userCart.productId )
+        console.log(matchProduct.productPrice)
+        if (matchProduct) {
+            const price = matchProduct.productPrice * userCart.productAmount;
+            totalPrice += price;
+    }   
+    })
     totalOfProduct.innerHTML = totalPrice + " TL"
     let li = document.createElement("li")
     if(totalPrice > 300 ){
