@@ -14,6 +14,10 @@ Html, css, javascript teknolojileri kullanılarak geliştirilmiş bir clone proj
 - Ürünler, local storage kullanılarak parametrik olarak çekilir.
 - Anasayfa, giriş yapma ve hesap oluşturma sayfaları responsive olarak geliştirilmiştir.
 
+## Test Ortamı 
+Proje Github Pages üzerinde yayındadır. Aşağıdaki linkten erişebilirsiniz.
+https://melikeeisik.github.io/trendyol-clone/
+
 ## Video Linki
 https://youtu.be/dNadb9Vlhes
 
