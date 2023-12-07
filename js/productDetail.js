@@ -134,28 +134,36 @@ function control(){
           cartCount()
       }) 
     }
-  
   }
 }
+addCart.addEventListener("click", e=>{
+  const user = userList.find(item => item.userMail == activeUser)
+  if(!user){
+    console.log("heyyo")
+    window.location.href="./login.html"
+  }
+})
 addFavorites.addEventListener("click", e=>{
   let user = userList.find(item => item.userMail == activeUser)
-  console.log(bodyId)
-  let favori = user.userFavorites.find(item => item == bodyId)
-  if(favori){
-    const index = user.userFavorites.findIndex(item => item == bodyId)
-    user.userFavorites.splice(index,1)
-    localStorage.setItem("userList", JSON.stringify(userList))
-    addFavorites.querySelector("i").classList.remove("fa-solid","fa-heart")
-    addFavorites.querySelector("i").classList.add("fa-regular", "fa-heart")
-    addFavorites.querySelector("i").removeAttribute("style","color:#ffa500;")
+  if(user){
+    let favori = user.userFavorites.find(item => item == bodyId)
+    if(favori){
+      const index = user.userFavorites.findIndex(item => item == bodyId)
+      user.userFavorites.splice(index,1)
+      localStorage.setItem("userList", JSON.stringify(userList))
+      addFavorites.querySelector("i").classList.remove("fa-solid","fa-heart")
+      addFavorites.querySelector("i").classList.add("fa-regular", "fa-heart")
+      addFavorites.querySelector("i").removeAttribute("style","color:#ffa500;")
+    }else{
+      user.userFavorites.push(bodyId)
+      localStorage.setItem("userList", JSON.stringify(userList))
+      addFavorites.querySelector("i").classList.remove("fa-regular", "fa-heart")
+      addFavorites.querySelector("i").classList.add("fa-solid","fa-heart")
+      addFavorites.querySelector("i").setAttribute("style","color:#ffa500;")
+    } 
   }else{
-    user.userFavorites.push(bodyId)
-    localStorage.setItem("userList", JSON.stringify(userList))
-    addFavorites.querySelector("i").classList.remove("fa-regular", "fa-heart")
-    addFavorites.querySelector("i").classList.add("fa-solid","fa-heart")
-    addFavorites.querySelector("i").setAttribute("style","color:#ffa500;")
-    
-  }
+    window.location.href="./login.html"
+  }  
 })
 
 function changeText(item, newText){
